@@ -46,7 +46,7 @@ namespace SD2.Patterns
 
                 switch (option)
                 {
-                    case FactoryMethodId: Console.WriteLine("Under construction\n"); break;
+                    case FactoryMethodId: FactoryMethod.DungeonHunter.Game.GameLoop.Start(); break;
                     case SingletonId: Console.WriteLine("Under construction\n"); break;
                     case AdapterId: Console.WriteLine("Under construction\n"); break;
                     case CompositeId: Console.WriteLine("Under construction\n"); break;

@@ -63,6 +63,9 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
@@ -81,6 +84,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRunnable.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Character.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\CharacterFactory.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\EnemyCharacters\EnemyCharacter.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\PlayerCharacter.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Warrior.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\IDescribable.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Loot.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\ReflectiveEnumerator.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\GameLoop.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\Setup.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Armor.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\ArmorFactory.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Unarmored.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Potions\Potion.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Unarmed.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Weapon.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\WeaponFactory.cs" />
     <Compile Include="Patterns\Menu.cs" />
     <Compile Include="MenuStart.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\CacheChainHandler.cs" />
