@@ -84,10 +84,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRunnable.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Attribute.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Character.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\CharacterFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\EnemyCharacters\EnemyCharacter.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Mage.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\PlayerCharacter.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Rogue.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Warrior.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\IDescribable.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Loot.cs" />
@@ -96,9 +100,21 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\Setup.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Armor.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\ArmorFactory.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Cloths\Cloth.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Cloths\RaggedArmor.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Plates\OldWarArmor.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Plates\Plate.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Unarmored.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Potions\Potion.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Axes\Axe.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Axes\RustyAxe.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Bow\Bow.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Bow\RicketyBow.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Daggers\Dagger.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Daggers\RustyDagger.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Unarmed.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Wand\Wand.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Wand\WarpedWand.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Weapon.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\WeaponFactory.cs" />
     <Compile Include="Patterns\Menu.cs" />

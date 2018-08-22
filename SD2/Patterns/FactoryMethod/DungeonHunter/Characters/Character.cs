@@ -12,15 +12,42 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
         public bool IsAlive { get; private set; } = true;
 
         public string CharacterName { get; set; }
-        public int Health { get; protected set; }
+        public int HealthPool { get; set; }
+        public int RemainingHealth { get; protected set; }
 
-        protected Weapon Weapon = WeaponFactory.GenerateWeapon(WeaponType.Unarmed);
-        protected Armor Armor = ArmorFactory.GenerateArmor(ArmorType.Unarmoed);
-        protected List<Potion> Potions = new List<Potion>();
+        private Weapon _weapon = WeaponFactory.GenerateWeapon(WeaponType.Unarmed);
+        protected Weapon Weapon
+        { 
+            get
+            {
+                return _weapon;
+            }
+            set
+            {
+                if (value != null) value.Weilder = this;
+                _weapon = value;
+            }
+        }
 
-        public int Strength { get; set; }
-        public int Dexterity { get; set; }
-        public int Inteligence { get; set; }
+        private Armor _armor = ArmorFactory.GenerateArmor(ArmorType.Unarmoed);
+        protected Armor Armor
+        {
+            get
+            {
+                return _armor;
+            }
+            set
+            {
+                if (value != null) value.Wearer = this;
+                _armor = value;
+            }
+        }
+
+        protected List<Potion> Potions { get; } = new List<Potion>();
+
+        public Attribute Strength { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Strength);
+        public Attribute Dexterity { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Dexterity);
+        public Attribute Inteligence { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Intelligence);
 
         public void EquipWeapon(Weapon weapon)
         {
@@ -40,7 +67,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
         public int AttackWithWeapon()
         {
             var weaponDamage = Weapon.Use();
-            var totalDamage = weaponDamage + Strength;
+            var totalDamage = weaponDamage + Strength.Value;
 
             return totalDamage;
         }
@@ -48,7 +75,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
         public void GetAttacked(int incomingDamange)
         {
             var randomizer = new Random();
-            var didDodge = randomizer.Next(1, 10 - Dexterity) == 1;
+            var didDodge = randomizer.Next(1, 10 - Dexterity.Value) == 1;
 
             if (didDodge)
             {
@@ -58,15 +85,24 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 
             var appliedDamange = Armor.MitigateDamage(incomingDamange);
 
-            Health -= Armor.MitigateDamage(incomingDamange);
+            RemainingHealth -= Armor.MitigateDamage(incomingDamange);
             Console.WriteLine($"{CharacterName} took {appliedDamange} damange!");
 
             DeathCheck();
         }
 
+        public void AddPoition(Potion potion)
+        {
+            if(potion != null)
+            {
+                potion.User = this;
+                Potions.Add(potion);
+            }
+        }
+
         private void DeathCheck()
         {
-            if (Health <= 0)
+            if (RemainingHealth <= 0)
             {
                 IsAlive = false;
             }

@@ -1,15 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
+﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Potions
 {
     public abstract class Potion : IDescribable
     {
+        private Character _user;
+        public Character User
+        {
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                if (value != null) value.AddPoition(this);
+                _user = value;
+            }
+        }
+
         public string NameOfPotion { get; }
         public int NumberOfUsesRemaining { get; protected set; }
 
@@ -19,6 +28,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Potions
             NumberOfUsesRemaining = numberOfUses;
         }
 
+        public abstract void UsePotion();
         public abstract void PrintDescription();
     }
 }

@@ -1,17 +1,29 @@
-﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
+﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
+using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
 {
     public abstract class Weapon : IDescribable
     {
-        public string WeaponName { get; }
-        public int AttackPower { get; }
-
-        protected Weapon(string weaponName, int attackPower)
-        {
-            WeaponName = weaponName;
-            AttackPower = attackPower;
+        private Character _weilder;
+        public Character Weilder {
+            get
+            {
+                return _weilder;
+            }
+            set
+            {
+                if(value != null) value.EquipWeapon(this);
+                _weilder = value;
+            }
         }
+
+        public abstract WeaponType WeaponType { get; }
+        public abstract string Name { get; }
+        public abstract int AttackPower { get; }
+        public abstract int Range { get; }
+        public abstract int DamageMultiplyer { get; }
+        public abstract Attribute EnhancingAttribute { get; }
 
         public int Use()
         {
@@ -25,6 +37,10 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
 
     public enum WeaponType
     {
-        Unarmed = 1
+        Unarmed = 1,
+        Axe = 2, 
+        Dagger = 3,
+        Bow = 4,
+        Wand = 5
     }
 }
