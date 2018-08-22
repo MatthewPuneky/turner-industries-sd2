@@ -5,9 +5,10 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 {
     public abstract class EnemyCharacter : Character
     {
-        public abstract string Name { get; }
         public abstract int AttributePool { get; }
+        public abstract EnemyCharacterType EnemyCharacterType { get; }
         public bool WasLooted { get; private set; }
+        public override CharacterController CharacterController => CharacterController.NPC;
 
         public EnemyCharacter()
         {
@@ -67,6 +68,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 
     public enum EnemyCharacterType
     {
-        Rat = 1
+        Rat = 1,
+        Goblin
     }
 }

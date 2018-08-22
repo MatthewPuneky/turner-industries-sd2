@@ -7,14 +7,11 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
     {
         private Character _weilder;
         public Character Weilder {
-            get
-            {
-                return _weilder;
-            }
+            get => _weilder;
             set
             {
-                if(value != null) value.EquipWeapon(this);
                 _weilder = value;
+                if (value != null && value.Weapon != this) value.EquipWeapon(this);
             }
         }
 

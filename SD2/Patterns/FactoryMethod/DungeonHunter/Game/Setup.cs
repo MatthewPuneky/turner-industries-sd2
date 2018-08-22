@@ -28,6 +28,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
             var input = Console.ReadLine();
 
             selectedClass.CharacterName = input;
+
+            Console.WriteLine();
         }
 
         private static void SetupAttributes(PlayerCharacter selectedClass)

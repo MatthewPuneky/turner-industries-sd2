@@ -9,34 +9,31 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 {
     public abstract class Character : IDescribable
     {
-        public static int miniumumStartingHealth = 10;
+        public static int MiniumumStartingHealth = 10;
 
         public bool IsAlive { get; private set; } = true;
-        public string CharacterName { get; set; }
-        public int HealthPool { get; set; } = miniumumStartingHealth;
-        public int RemainingHealth { get; protected set; } = miniumumStartingHealth;
+        public int HealthPool { get; set; } = MiniumumStartingHealth;
+        public int RemainingHealth { get; protected set; } = MiniumumStartingHealth;
 
-        private Weapon _weapon = WeaponFactory.GenerateWeapon(WeaponType.Unarmed);
-        protected Weapon Weapon
+        public abstract string CharacterName { get; set; }
+        public abstract CharacterController CharacterController { get; }
+        public abstract UnarmedAttackStyle UnarmedAttackStyle { get; }
+
+        private Weapon _weapon;
+        public Weapon Weapon
         { 
-            get
-            {
-                return _weapon;
-            }
+            get => _weapon;
             set
             {
-                if (value != null) value.Weilder = this;
                 _weapon = value;
+                if (value != null && value.Weilder != this) value.Weilder = this;
             }
         }
 
         private Armor _armor = ArmorFactory.GenerateArmor(ArmorType.Unarmoed);
         protected Armor Armor
         {
-            get
-            {
-                return _armor;
-            }
+            get => _armor;
             set
             {
                 if (value != null) value.Wearer = this;
@@ -50,7 +47,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
         public Attribute Dexterity { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Dexterity);
         public Attribute Intelligence { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Intelligence);
 
-        public Character()
+        protected Character()
         {
             Strength.Character = this;
             Dexterity.Character = this;
@@ -60,6 +57,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
         internal void Initialize()
         {
             RemainingHealth = HealthPool;
+            Weapon = WeaponFactory.GenerateWeapon(WeaponType.Unarmed);
         }
 
         public void EquipWeapon(Weapon weapon)
@@ -87,8 +85,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 
         public void GetAttacked(int incomingDamange)
         {
-            var randomizer = new Random();
-            var didDodge = randomizer.Next(1, 10 - Dexterity.Value) == 1;
+            var didDodge = GlobalRandomizer.Next(1, 11 - Dexterity.Value) == 1;
 
             if (didDodge)
             {
@@ -118,9 +115,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
             if (RemainingHealth <= 0)
             {
                 IsAlive = false;
+                Console.WriteLine($"{CharacterName} has died.");
             }
-
-            Console.WriteLine($"{CharacterName} has died.");
         }
 
         private void PrintDodge()
@@ -129,5 +125,11 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
         }
         
         public abstract void PrintDescription();
+    }
+
+    public enum CharacterController
+    {
+        Player = 1,
+        NPC
     }
 }

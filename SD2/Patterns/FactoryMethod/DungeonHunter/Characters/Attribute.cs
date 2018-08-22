@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
+﻿namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 {
     public class Attribute
     {
@@ -21,7 +15,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
             set
             {
                 if (Character != null && AttributeType == AttributeType.Strength)
-                    Character.HealthPool = Character.miniumumStartingHealth * value;
+                    Character.HealthPool = Character.MiniumumStartingHealth + Character.MiniumumStartingHealth * value;
                 _value = value;
             }
         }

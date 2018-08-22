@@ -10,10 +10,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
             var randomizer = new Random();
 
             var enumValues = Enum.GetValues(typeof(EnemyCharacterType)).Cast<int>();
-            var minValue = enumValues.Min();
-            var maxValue = enumValues.Max();
+            var minValueInclusive = enumValues.Min();
+            var maxValueInclusive = enumValues.Max();
 
-            var creatureToCreate = (EnemyCharacterType) randomizer.Next(minValue, maxValue);
+            var maxValueExclusive = maxValueInclusive + 1;
+
+            var creatureToCreate = (EnemyCharacterType) randomizer.Next(minValueInclusive, maxValueExclusive);
 
             return Generate(creatureToCreate);
         }
@@ -23,6 +25,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
             switch(enemyCharacterType)
             {
                 case EnemyCharacterType.Rat: return new Rat();
+                case EnemyCharacterType.Goblin: return new Goblin();
                 default: throw new Exception($"Failure to find enemy of type {enemyCharacterType}");
             }
         }
