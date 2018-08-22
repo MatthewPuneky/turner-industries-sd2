@@ -8,7 +8,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 {
     public class Attribute
     {
-        public Character character { get; private set; }
+        public Character Character { get; set; }
         public AttributeType AttributeType { get; set; }
 
         private int _value;
@@ -20,7 +20,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
             }
             set
             {
-                if (character != null) character.HealthPool *= _value;
+                if (Character != null && AttributeType == AttributeType.Strength)
+                    Character.HealthPool = Character.miniumumStartingHealth * value;
                 _value = value;
             }
         }

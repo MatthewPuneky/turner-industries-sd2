@@ -9,11 +9,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 {
     public abstract class Character : IDescribable
     {
-        public bool IsAlive { get; private set; } = true;
+        public static int miniumumStartingHealth = 10;
 
+        public bool IsAlive { get; private set; } = true;
         public string CharacterName { get; set; }
-        public int HealthPool { get; set; }
-        public int RemainingHealth { get; protected set; }
+        public int HealthPool { get; set; } = miniumumStartingHealth;
+        public int RemainingHealth { get; protected set; } = miniumumStartingHealth;
 
         private Weapon _weapon = WeaponFactory.GenerateWeapon(WeaponType.Unarmed);
         protected Weapon Weapon
@@ -47,7 +48,19 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 
         public Attribute Strength { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Strength);
         public Attribute Dexterity { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Dexterity);
-        public Attribute Inteligence { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Intelligence);
+        public Attribute Intelligence { get; set; } = AttributeFactory.GenerateAttribute(AttributeType.Intelligence);
+
+        public Character()
+        {
+            Strength.Character = this;
+            Dexterity.Character = this;
+            Intelligence.Character = this;
+        }
+        
+        internal void Initialize()
+        {
+            RemainingHealth = HealthPool;
+        }
 
         public void EquipWeapon(Weapon weapon)
         {

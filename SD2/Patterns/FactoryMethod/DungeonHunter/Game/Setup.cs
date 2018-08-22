@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 {
@@ -19,6 +14,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
             var selectedClass = ClassSelection();
             SetupAttributes(selectedClass);
             SetCharacterName(selectedClass);
+
+            selectedClass.Initialize();
 
             return selectedClass;
         }
@@ -117,26 +114,24 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
                 }
             }
 
-            selectedClass.Strength = currentStrength;
-            selectedClass.Inteligence = currentInteligence;
-            selectedClass.Dexterity = currentDexterity;
+            selectedClass.Strength.Value = currentStrength;
+            selectedClass.Intelligence.Value = currentInteligence;
+            selectedClass.Dexterity.Value = currentDexterity;
         }
 
         private static PlayerCharacter ClassSelection()
         {
-            var characterFactory = new CharacterFactory();
-
             while (true)
             {
                 Console.WriteLine("SELECT YOUR CLASS");
 
-                var classes = ReflectiveEnumerator.GetEnumerableOfType<PlayerCharacter>();
-
-                foreach (var @class in classes)
-                {
-                    var classAttributes = @class.GetClass();
-                    Console.WriteLine($"{(int)classAttributes.classEnum}: {classAttributes.className}");
-                }
+                var Warrior = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Warrior);
+                var Rogue = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Rogue);
+                var Mage = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Mage);
+                
+                Console.WriteLine($"{(int)Warrior.ClassType}: {Warrior.ClassType}");
+                Console.WriteLine($"{(int)Rogue.ClassType}: {Rogue.ClassType}");
+                Console.WriteLine($"{(int)Mage.ClassType}: {Mage.ClassType}");
 
                 Console.Write("Select an option: ");
                 var userInput = Console.ReadLine();
@@ -148,7 +143,9 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
                 switch (option)
                 {
                     case PlayerCharacterClass.Undecided: continue;
-                    case PlayerCharacterClass.Warrior: return characterFactory.GeneratePlayerCharacter(option);
+                    case PlayerCharacterClass.Warrior: return Warrior;
+                    case PlayerCharacterClass.Rogue: return Rogue;
+                    case PlayerCharacterClass.Mage: return Mage;
                     default: Console.WriteLine("INVALID OPTION\n"); continue;
                 }
             }

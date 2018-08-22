@@ -86,9 +86,13 @@
     <Compile Include="IRunnable.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Attribute.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeFactory.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeProfile.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Character.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\CharacterFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\EnemyCharacters\EnemyCharacter.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\EnemyCharacters\EnemyCharacterFactory.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\EnemyCharacters\Goblin.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\EnemyCharacters\Rat.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Mage.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\PlayerCharacter.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Rogue.cs" />

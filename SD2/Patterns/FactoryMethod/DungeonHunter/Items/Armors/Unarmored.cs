@@ -4,12 +4,10 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors
 {
     public class Unarmored : Armor
     {
-        private static readonly int _armorRaiting = 0;
-        private static readonly string _armorName = "Unarmored";
-
-        public Unarmored() : base(_armorName, _armorRaiting)
-        {
-        }
+        public override ArmorType ArmorType => ArmorType.Unarmoed;
+        public override ArmorWeight ArmorWeight => ArmorWeight.None;
+        public override string ArmorName => "Unarmed";
+        public override int ArmorRaiting => 0;
 
         public override void PrintDescription()
         {

@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
 {
     public class Unarmed : Weapon
     {
-        public Unarmed(string weaponName, int attackPower) : base(weaponName, attackPower)
-        {
-        }
+        public override WeaponType WeaponType => WeaponType.Unarmed;
+        public override string Name => "Unarmed";
+        public override int AttackPower => 1;
+        public override int Range => 1;
+        public override int DamageMultiplyer => 1;
+        public override Characters.Attribute EnhancingAttribute => Weilder.Strength;
 
         public override void PrintWeaponAttack()
         {

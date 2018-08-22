@@ -12,8 +12,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
         {
             switch (weaponType)
             {
-                case WeaponType.Unarmed: return new Unarmed("Fists", 1);
-                default: return new Unarmed("Fists", 1);
+                case WeaponType.Unarmed: return new Unarmed();
+                default: return new Unarmed();
             }
         }
     }

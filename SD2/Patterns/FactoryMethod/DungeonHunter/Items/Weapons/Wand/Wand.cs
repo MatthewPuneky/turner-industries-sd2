@@ -7,6 +7,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Wand
         public override WeaponType WeaponType => WeaponType.Wand;
         public override int DamageMultiplyer => 3;
         public override int Range => 7;
-        public override Attribute EnhancingAttribute => Weilder.Inteligence;
+        public override Attribute EnhancingAttribute => Weilder.Intelligence;
     }
 }

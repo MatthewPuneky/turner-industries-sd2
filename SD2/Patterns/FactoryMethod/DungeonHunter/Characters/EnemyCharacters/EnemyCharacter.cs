@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Items.Potions;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 {
     public abstract class EnemyCharacter : Character
     {
+        public abstract string Name { get; }
+        public abstract int AttributePool { get; }
         public bool WasLooted { get; private set; }
+
+        public EnemyCharacter()
+        {
+            var attributeProfile = RandomizeAttributes(AttributePool);
+
+            Strength.Value = attributeProfile.Strength.Value;
+            Intelligence.Value = attributeProfile.Dexterity.Value;
+            Dexterity.Value = attributeProfile.Intelligence.Value;
+
+            Initialize();
+        }
 
         public bool TryLoot(out Loot lootedItems)
         {
@@ -32,10 +41,32 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
             lootedItems = null;
             return false;
         }
+        
+        private static AttributeProfile RandomizeAttributes(int totalAttributesToSeparate)
+        {
+            var randomizer = new Random();
+
+            var strength = randomizer.Next(0, totalAttributesToSeparate);
+            var intelligence = randomizer.Next(0, totalAttributesToSeparate - strength);
+            var dexterity = totalAttributesToSeparate - intelligence;
+
+            var attributeProfile = new AttributeProfile();
+
+            attributeProfile.Strength.Value = strength;
+            attributeProfile.Intelligence.Value = intelligence;
+            attributeProfile.Dexterity.Value = dexterity;
+
+            return attributeProfile;
+        }
 
         private void PrintCantLootTarget()
         {
             Console.WriteLine($"Cannot loot {CharacterName}.");
         }
+    }
+
+    public enum EnemyCharacterType
+    {
+        Rat = 1
     }
 }
