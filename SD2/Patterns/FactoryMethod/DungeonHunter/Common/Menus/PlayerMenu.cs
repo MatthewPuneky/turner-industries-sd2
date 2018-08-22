@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 {
     public class PlayerMenu : Menu
     {
-        protected override List<string> LegalValues => Enum.GetValues(typeof(PlayerMenuOptions))
-                                                        .Cast<PlayerMenuOptions>()
-                                                        .Select(x => ((int)x).ToString())
-                                                        .ToList();
-        protected override bool CanExit { get; }
+        protected override List<string> LegalValues => EnumHelper.PoistionValuesToStringList(typeof(PlayerMenuOptions));
+        protected override bool CanExit => true;
 
         protected override void PrintMenuHeader()
         {

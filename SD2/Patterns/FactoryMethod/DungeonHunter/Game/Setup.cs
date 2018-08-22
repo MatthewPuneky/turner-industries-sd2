@@ -144,7 +144,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 
                 switch (option)
                 {
-                    case PlayerCharacterClass.Undecided: continue;
                     case PlayerCharacterClass.Warrior: return Warrior;
                     case PlayerCharacterClass.Rogue: return Rogue;
                     case PlayerCharacterClass.Mage: return Mage;

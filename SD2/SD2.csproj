@@ -98,6 +98,7 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Rogue.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\PlayerCharacters\Warrior.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\GlobalRandomizer.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Helpers\EnumHelper.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\IDescribable.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Loot.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\Menu.cs" />
