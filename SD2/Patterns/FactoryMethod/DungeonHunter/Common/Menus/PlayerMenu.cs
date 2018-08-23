@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
+using SD2.Patterns.FactoryMethod.DungeonHunter.Game;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 {
@@ -23,36 +23,36 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
             Console.WriteLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
             Console.WriteLine($"{(int)PlayerMenuOptions.Exit}: Leave Menu");
         }
+    }
 
-        public override void HandleMenu()
+    public class PlayerMenuHandler : MenuHandler<DungeonHunterState>
+    {
+        public PlayerMenuHandler() 
+            : base(new PlayerMenu(), DungeonHunterState.Instance)
         {
-            var menuIsActive = true;
+        }
 
-            while (menuIsActive)
+        protected override void MenuOptions(string userInput)
+        {
+            var option = (PlayerMenuOptions)int.Parse(userInput);
+
+            switch (option)
             {
-                var userInput = PrintMenuWithUserInput();
-                var option = (PlayerMenuOptions)int.Parse(userInput);
-
-                switch (option)
-                {
-                    case PlayerMenuOptions.EquipWeapon: Console.WriteLine("Under Construction"); break;
-                    case PlayerMenuOptions.EquipArmor: Console.WriteLine("Under Construction"); break;
-                    case PlayerMenuOptions.UsePotion: Console.WriteLine("Under Construction"); break;
-                    case PlayerMenuOptions.DescribeSelf: Console.WriteLine("Under Construction"); break;
-                    case PlayerMenuOptions.Exit: menuIsActive = false; break;
-                }
-
-                Console.WriteLine();
+                case PlayerMenuOptions.EquipWeapon: Console.WriteLine("Under Construction"); break;
+                case PlayerMenuOptions.EquipArmor: Console.WriteLine("Under Construction"); break;
+                case PlayerMenuOptions.UsePotion: Console.WriteLine("Under Construction"); break;
+                case PlayerMenuOptions.DescribeSelf: Console.WriteLine("Under Construction"); break;
+                case PlayerMenuOptions.Exit: MenuIsActive = false; break;
             }
         }
+    }
 
-        protected enum PlayerMenuOptions
-        {
-            EquipWeapon = 1,
-            EquipArmor,
-            UsePotion,
-            DescribeSelf,
-            Exit
-        }
+    public enum PlayerMenuOptions
+    {
+        EquipWeapon = 1,
+        EquipArmor,
+        UsePotion,
+        DescribeSelf,
+        Exit
     }
 }

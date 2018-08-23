@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Game;
+using SD2.Patterns.Singleton.Menus;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 {
-    public static class MenuFactory<T> where T : Menu, new()
+    public static class MenuFactory
     {
-        public static Menu GenerateConstructorless() => new T();
+        public static PlayerMenuHandler PlayerMenu() => new PlayerMenuHandler();
+        public static SelectCrustMenuHandler SelectCrustMenu() => new SelectCrustMenuHandler();
     }
 }

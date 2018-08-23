@@ -105,6 +105,7 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\MenuFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\PlayerMenu.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\ReflectiveEnumerator.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\DungeonHunterState.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\GameLoop.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\Setup.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Armors\Armor.cs" />
@@ -135,6 +136,12 @@
     <Compile Include="Patterns\ChainOfResponsibility\CacheNodes\LongTermUserStorage.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\Run.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\User.cs" />
+    <Compile Include="Patterns\Singleton\Menus\SelectCrustMenu.cs" />
+    <Compile Include="Patterns\Singleton\State\Pizza.cs" />
+    <Compile Include="Patterns\Singleton\State\PizzaOrderState.cs" />
+    <Compile Include="Patterns\Singleton\State\Run.cs" />
+    <Compile Include="Patterns\Singleton\State\State.cs" />
+    <Compile Include="Patterns\Singleton\State\Toppings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

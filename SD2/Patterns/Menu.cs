@@ -2,7 +2,7 @@
 
 namespace SD2.Patterns
 {
-    public static class Menu
+    public static class BaseMenu
     {
         private const int FactoryMethodId = 1;
         private const int SingletonId = 2;
@@ -47,7 +47,7 @@ namespace SD2.Patterns
                 switch (option)
                 {
                     case FactoryMethodId: FactoryMethod.DungeonHunter.Game.GameLoop.Start(); break;
-                    case SingletonId: Console.WriteLine("Under construction\n"); break;
+                    case SingletonId: Singleton.State.Run.Operation(); break;
                     case AdapterId: Console.WriteLine("Under construction\n"); break;
                     case CompositeId: Console.WriteLine("Under construction\n"); break;
                     case DecoratorId: Console.WriteLine("Under construction\n"); break;

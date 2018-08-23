@@ -38,7 +38,7 @@ namespace SD2
                 {
                     case GeneralId: Console.WriteLine("Under construction\n"); break;
                     case BackendId: Console.WriteLine("Under construction\n"); break;
-                    case PatternsId: Patterns.Menu.Print(); break;
+                    case PatternsId: Patterns.BaseMenu.Print(); break;
                     case SolidPrincipalsId: Console.WriteLine("Under construction\n"); break;
                     case TSqlId: Console.WriteLine("Under construction\n"); break;
                     case DevOpsId: Console.WriteLine("Under construction\n"); break;

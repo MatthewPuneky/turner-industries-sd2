@@ -32,18 +32,68 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
             }
         }
 
-        protected virtual string PrintMenuWithUserInput()
+        public virtual string PrintMenuWithUserInput()
         {
             PrintMenuHeader();
             PrintMenuBody();
             return GetUserInput();
         }
 
-        public abstract void HandleMenu();
-
         private bool IsUserInputValid(string input)
         {
             return LegalValues.Contains(input);
+        }
+    }
+
+    public abstract class MenuHandler
+    {
+        protected Menu Menu { get; }
+
+        protected abstract void MenuOptions(string userInput);
+        protected bool MenuIsActive { get; set; } = true;
+
+        public MenuHandler(Menu menu)
+        {
+            Menu = menu;
+        }
+
+        public void HandleMenu()
+        {
+            while (MenuIsActive)
+            {
+                var userInput = Menu.PrintMenuWithUserInput();
+
+                MenuOptions(userInput);
+
+                Console.WriteLine();
+            }
+        }
+    }
+
+    public abstract class MenuHandler<T>
+    {
+        protected Menu Menu { get; }
+        protected T State { get; }
+
+        protected abstract void MenuOptions(string userInput);
+        protected bool MenuIsActive { get; set; } = true;
+
+        public MenuHandler(Menu menu, T state)
+        {
+            State = state;
+            Menu = menu;
+        }
+
+        public void HandleMenu()
+        {
+            while (MenuIsActive)
+            {
+                var userInput = Menu.PrintMenuWithUserInput();
+
+                MenuOptions(userInput);
+
+                Console.WriteLine();
+            }
         }
     }
 }
