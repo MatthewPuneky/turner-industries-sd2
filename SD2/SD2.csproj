@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRunnable.cs" />
+    <Compile Include="ApplicationStart.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Attribute.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeProfile.cs" />
@@ -101,8 +102,10 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Helpers\EnumHelper.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\IDescribable.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Loot.cs" />
-    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\Menu.cs" />
-    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\MenuFactory.cs" />
+    <Compile Include="SharedFeatures\Common\Constants.cs" />
+    <Compile Include="SharedFeatures\Menus\Menu.cs" />
+    <Compile Include="SharedFeatures\Menus\MenuFactory.cs" />
+    <Compile Include="SharedFeatures\Menus\MenuHandlerFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\PlayerMenu.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\ReflectiveEnumerator.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\DungeonHunterState.cs" />
@@ -127,7 +130,7 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Wand\WarpedWand.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\Weapon.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Items\Weapons\WeaponFactory.cs" />
-    <Compile Include="Patterns\Menu.cs" />
+    <Compile Include="Patterns\PatternsMenu.cs" />
     <Compile Include="MenuStart.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\CacheChainHandler.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\CacheNodes\CachedUser.cs" />

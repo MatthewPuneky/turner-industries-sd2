@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
+namespace SD2.SharedFeatures.Menus
 {
     public abstract class Menu
     {
@@ -47,26 +47,29 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 
     public abstract class MenuHandler
     {
-        protected Menu Menu { get; }
+        public Menu Menu { get; }
 
         protected abstract void MenuOptions(string userInput);
         protected bool MenuIsActive { get; set; } = true;
 
-        public MenuHandler(Menu menu)
+        protected MenuHandler(Menu menu)
         {
             Menu = menu;
         }
 
         public void HandleMenu()
         {
+            Console.WriteLine();
+
             while (MenuIsActive)
             {
                 var userInput = Menu.PrintMenuWithUserInput();
 
                 MenuOptions(userInput);
 
-                Console.WriteLine();
             }
+
+            Console.WriteLine();
         }
     }
 
@@ -78,7 +81,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
         protected abstract void MenuOptions(string userInput);
         protected bool MenuIsActive { get; set; } = true;
 
-        public MenuHandler(Menu menu, T state)
+        protected MenuHandler(Menu menu, T state)
         {
             State = state;
             Menu = menu;
@@ -86,14 +89,16 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 
         public void HandleMenu()
         {
+            Console.WriteLine();
+
             while (MenuIsActive)
             {
                 var userInput = Menu.PrintMenuWithUserInput();
 
                 MenuOptions(userInput);
-
-                Console.WriteLine();
             }
+
+            Console.WriteLine();
         }
     }
 }

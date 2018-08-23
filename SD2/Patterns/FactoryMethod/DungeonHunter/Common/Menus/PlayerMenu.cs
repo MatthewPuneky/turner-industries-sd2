@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Game;
+using SD2.SharedFeatures.Common;
+using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 {
@@ -28,7 +30,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
     public class PlayerMenuHandler : MenuHandler<DungeonHunterState>
     {
         public PlayerMenuHandler() 
-            : base(new PlayerMenu(), DungeonHunterState.Instance)
+            : base(MenuFactory.PlayerMenu(), DungeonHunterState.Instance)
         {
         }
 
@@ -43,6 +45,9 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
                 case PlayerMenuOptions.UsePotion: Console.WriteLine("Under Construction"); break;
                 case PlayerMenuOptions.DescribeSelf: Console.WriteLine("Under Construction"); break;
                 case PlayerMenuOptions.Exit: MenuIsActive = false; break;
+                default:
+                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    break;
             }
         }
     }

@@ -1,72 +1,69 @@
 ﻿using System;
+using System.Collections.Generic;
+using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
+using SD2.SharedFeatures.Common;
+using SD2.SharedFeatures.Menus;
 
 namespace SD2
 {
-    public class MenuStart
+    public class ApplicationMainMenu : Menu
     {
-        private const int GeneralId = 1;
-        private const int BackendId = 2;
-        private const int PatternsId = 3;
-        private const int SolidPrincipalsId = 4;
-        private const int TSqlId = 5;
-        private const int DevOpsId = 6;
+        protected override List<string> LegalValues => EnumHelper.PoistionValuesToStringList(typeof(ApplicationMainMenuOptions));
+        protected override bool CanExit => false;
 
-        public static void Main(string[] args)
+        protected override void PrintMenuHeader()
         {
-            WiteIntro();
+            Console.WriteLine("APPLICATION MAIN MENU");
+        }
 
-            while (true)
+        protected override void PrintMenuBody()
+        {
+            const string underConstruction = Constants.MenuConstants.UnderConstruction;
+
+            Console.WriteLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
+            Console.WriteLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
+            Console.WriteLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns ");
+            Console.WriteLine($"{(int)ApplicationMainMenuOptions.SolidPrincipals}: Solid Principals {underConstruction}");
+            Console.WriteLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
+            Console.WriteLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
+        }
+    }
+
+    public class ApplicationMainMenuHandler : MenuHandler
+    {
+        public ApplicationMainMenuHandler()
+            : base(MenuFactory.ApplicationMainMenu())
+        {
+        }
+
+        protected override void MenuOptions(string userInput)
+        {
+            const string underConstruction = Constants.MenuConstants.UnderConstructionToUserResponse;
+            var option = (ApplicationMainMenuOptions)int.Parse(userInput);
+
+            switch (option)
             {
-                Console.WriteLine("MAIN MENU");
-                Console.WriteLine($"{GeneralId}: General");
-                Console.WriteLine($"{BackendId}: Backend");
-                Console.WriteLine($"{PatternsId}: Patterns");
-                Console.WriteLine($"{SolidPrincipalsId}: Solid Principals");
-                Console.WriteLine($"{TSqlId}: T-SQL");
-                Console.WriteLine($"{DevOpsId}: DevOps");
-
-                Console.Write("Select an option (0 to exit): ");
-                var userInput = Console.ReadLine();
-                Console.WriteLine();
-
-                var wasParseable = int.TryParse(userInput, out var option);
-                if(!wasParseable) continue;
-
-                if (option == 0) break;
-
-                switch (option)
-                {
-                    case GeneralId: Console.WriteLine("Under construction\n"); break;
-                    case BackendId: Console.WriteLine("Under construction\n"); break;
-                    case PatternsId: Patterns.BaseMenu.Print(); break;
-                    case SolidPrincipalsId: Console.WriteLine("Under construction\n"); break;
-                    case TSqlId: Console.WriteLine("Under construction\n"); break;
-                    case DevOpsId: Console.WriteLine("Under construction\n"); break;
-                    default: Console.WriteLine("INVALID OPTION\n"); break;
-                }
+                case ApplicationMainMenuOptions.General: Console.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.Backend: Console.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.Patterns: MenuHandlerFactory.PatternsMenu().HandleMenu(); break;
+                case ApplicationMainMenuOptions.SolidPrincipals: Console.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.TSql: Console.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.DevOps: Console.WriteLine(underConstruction); break;
+                default:
+                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    break;
             }
         }
+    }
 
-        private static void WiteIntro()
-        {
-            Console.WriteLine(@"#####################################################################");
-            Console.WriteLine(@"#   _____        __ _                            _____              #");
-            Console.WriteLine(@"#  / ____|      / _| |                          |  __ \             #");
-            Console.WriteLine(@"# | (___   ___ | |_| |___      ____ _ _ __ ___  | |  | | _____   __ #");
-            Console.WriteLine(@"#  \___ \ / _ \|  _| __\ \ /\ / / _` | '__/ _ \ | |  | |/ _ \ \ / / #");
-            Console.WriteLine(@"#  ____) | (_) | | | |_ \ V  V / (_| | | |  __/ | |__| |  __/\ V /  #");
-            Console.WriteLine(@"# |_____/ \___/|_|_ \__|_\_/\_/ \__,_|_|  \___| |_____/ \___| \_/   #");
-            Console.WriteLine(@"#   _____ _____ ___    _______                                      #");
-            Console.WriteLine(@"#  / ____|  __ \__ \  |__   __|      (_)     (_)                    #");
-            Console.WriteLine(@"# | (___ | |  | | ) |    | |_ __ __ _ _ _ __  _ _ __   __ _         #");
-            Console.WriteLine(@"#  \___ \| |  | |/ /     | | '__/ _` | | '_ \| | '_ \ / _` |        #");
-            Console.WriteLine(@"#  ____) | |__| / /_     | | | | (_| | | | | | | | | | (_| |        #");
-            Console.WriteLine(@"# |_____/|_____/____|    |_|_|  \__,_|_|_| |_|_|_| |_|\__, |        #");
-            Console.WriteLine(@"#                                                      __/ |        #");
-            Console.WriteLine(@"#                                                     |___/         #");
-            Console.WriteLine(@"#                                                                   #");
-            Console.WriteLine(@"#####################################################################");
-            Console.WriteLine("");
-        }
+    public enum ApplicationMainMenuOptions
+    {
+        General = 1,
+        Backend,
+        Patterns,
+        SolidPrincipals,
+        TSql,
+        DevOps,
+        Poop
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.Singleton.State
 {
@@ -18,7 +19,7 @@ namespace SD2.Patterns.Singleton.State
 
         private static void SelectCrustType()
         {
-            var menu = MenuFactory.SelectCrustMenu();
+            var menu = MenuHandlerFactory.SelectCrustMenu();
             menu.HandleMenu();
         }
 

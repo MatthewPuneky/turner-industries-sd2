@@ -3,6 +3,7 @@ using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
 using System;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
+using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 {
@@ -29,7 +30,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 
         public static void WalkingPhase()
         {
-            var playerMenu = MenuFactory.PlayerMenu();
+            var playerMenu = MenuHandlerFactory.PlayerMenu();
             playerMenu.HandleMenu();
         }
 

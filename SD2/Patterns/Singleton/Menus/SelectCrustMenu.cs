@@ -3,6 +3,8 @@ using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using System;
 using SD2.Patterns.Singleton.State;
+using SD2.SharedFeatures.Common;
+using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.Singleton.Menus
 {
@@ -27,7 +29,7 @@ namespace SD2.Patterns.Singleton.Menus
     public class SelectCrustMenuHandler : MenuHandler<PizzaOrderState>
     {
         public SelectCrustMenuHandler() 
-            : base(new SelectCrustMenu(), PizzaOrderState.Instance)
+            : base(MenuFactory.SelectCrustMenu(), PizzaOrderState.Instance)
         {
         }
 
@@ -43,7 +45,7 @@ namespace SD2.Patterns.Singleton.Menus
                 case CrustTypes.Thin: State.CurrentOrder.Crust = "Thin"; break;
                 case CrustTypes.StuffedCrust: State.CurrentOrder.Crust = "Stuffed Crust"; break;
                 default:
-                    Console.WriteLine($"Crust Type {option} failed to be handled as an option.");
+                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }
