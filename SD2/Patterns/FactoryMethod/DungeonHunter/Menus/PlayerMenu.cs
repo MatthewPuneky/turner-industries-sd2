@@ -7,8 +7,13 @@ using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 {
-    public class PlayerMenu : Menu
+    public class PlayerMenu : Menu<DungeonHunterState>
     {
+        public PlayerMenu() 
+            : base(DungeonHunterState.Instance)
+        {
+        }
+
         protected override List<string> LegalValues => EnumHelper.PoistionValuesToStringList(typeof(PlayerMenuOptions));
         protected override bool CanExit => true;
 
@@ -24,14 +29,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
             Console.WriteLine($"{(int)PlayerMenuOptions.UsePotion}: Use Potion");
             Console.WriteLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
             Console.WriteLine($"{(int)PlayerMenuOptions.Exit}: Leave Menu");
-        }
-    }
-
-    public class PlayerMenuHandler : MenuHandler<DungeonHunterState>
-    {
-        public PlayerMenuHandler() 
-            : base(MenuFactory.PlayerMenu(), DungeonHunterState.Instance)
-        {
         }
 
         protected override void MenuOptions(string userInput)

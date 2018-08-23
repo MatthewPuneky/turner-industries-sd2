@@ -8,7 +8,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
     {
         private int fakeUserLimit = 2;
 
-        public static List<CachedUser> _fakeIndexCache { get; private set; } = new List<CachedUser>();
+        public static List<CachedUser> _fakeIndexCache { get; } = new List<CachedUser>();
 
         public override CachedUser HandleRequest(int request)
         {
@@ -22,9 +22,9 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
                 cachedUser.LastVisitDateTime = DateTime.UtcNow;
                 return cachedUser;
             }
-            else if (_successor != null)
+            else if (Successor != null)
             {
-                cachedUser = _successor.HandleRequest(request);
+                cachedUser = Successor.HandleRequest(request);
                 HandleResponse(cachedUser);
                 return cachedUser;
             }
@@ -44,7 +44,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
             {
                 var userToDemote = RemoveOldestCachedUserFromList();
                 Console.WriteLine($"Demoting user id={userToDemote.User.Id} from INDEX to lower cache");
-                _successor.HandleResponse(userToDemote);
+                Successor.HandleResponse(userToDemote);
             }
 
             response.LastVisitDateTime = DateTime.UtcNow;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using System;
 using SD2.Patterns.Singleton.State;
@@ -8,8 +7,13 @@ using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.Singleton.Menus
 {
-    public class SelectCrustMenu : Menu
+    public class SelectCrustMenu : Menu<PizzaOrderState>
     {
+        public SelectCrustMenu() 
+            : base(PizzaOrderState.Instance)
+        {
+        }
+
         protected override List<string> LegalValues => EnumHelper.PoistionValuesToStringList(typeof(CrustTypes));
         protected override bool CanExit => false;
         
@@ -24,14 +28,6 @@ namespace SD2.Patterns.Singleton.Menus
             Console.WriteLine($"{(int)CrustTypes.Thin}: Thin");
             Console.WriteLine($"{(int)CrustTypes.StuffedCrust}: Stuffed Crust");
         }
-    }
-
-    public class SelectCrustMenuHandler : MenuHandler<PizzaOrderState>
-    {
-        public SelectCrustMenuHandler() 
-            : base(MenuFactory.SelectCrustMenu(), PizzaOrderState.Instance)
-        {
-        }
 
         protected override void MenuOptions(string userInput)
         {
@@ -39,7 +35,7 @@ namespace SD2.Patterns.Singleton.Menus
 
             MenuIsActive = false;
 
-            switch(option)
+            switch (option)
             {
                 case CrustTypes.PanTossed: State.CurrentOrder.Crust = "Pan Tossed"; break;
                 case CrustTypes.Thin: State.CurrentOrder.Crust = "Thin"; break;

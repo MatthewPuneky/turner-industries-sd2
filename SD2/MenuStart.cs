@@ -27,14 +27,6 @@ namespace SD2
             Console.WriteLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
             Console.WriteLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
         }
-    }
-
-    public class ApplicationMainMenuHandler : MenuHandler
-    {
-        public ApplicationMainMenuHandler()
-            : base(MenuFactory.ApplicationMainMenu())
-        {
-        }
 
         protected override void MenuOptions(string userInput)
         {
@@ -45,7 +37,7 @@ namespace SD2
             {
                 case ApplicationMainMenuOptions.General: Console.WriteLine(underConstruction); break;
                 case ApplicationMainMenuOptions.Backend: Console.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.Patterns: MenuHandlerFactory.PatternsMenu().HandleMenu(); break;
+                case ApplicationMainMenuOptions.Patterns: MenuFactory.PatternsMenu().Display(); break;
                 case ApplicationMainMenuOptions.SolidPrincipals: Console.WriteLine(underConstruction); break;
                 case ApplicationMainMenuOptions.TSql: Console.WriteLine(underConstruction); break;
                 case ApplicationMainMenuOptions.DevOps: Console.WriteLine(underConstruction); break;

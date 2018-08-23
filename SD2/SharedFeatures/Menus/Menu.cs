@@ -10,6 +10,9 @@ namespace SD2.SharedFeatures.Menus
 
         protected abstract void PrintMenuHeader();
         protected abstract void PrintMenuBody();
+        protected abstract void MenuOptions(string userInput);
+
+        protected bool MenuIsActive { get; set; } = true;
 
         protected virtual void PrintUserInputPrompt()
         {
@@ -32,73 +35,41 @@ namespace SD2.SharedFeatures.Menus
             }
         }
 
-        public virtual string PrintMenuWithUserInput()
+        protected virtual string PrintMenuWithUserInput()
         {
             PrintMenuHeader();
             PrintMenuBody();
             return GetUserInput();
         }
+        
+        public void Display()
+        {
+            Console.WriteLine();
+
+            while (MenuIsActive)
+            {
+                var userInput = PrintMenuWithUserInput();
+
+                MenuOptions(userInput);
+            }
+
+            Console.WriteLine();
+        }
 
         private bool IsUserInputValid(string input)
         {
+            if (CanExit && input == "0") return true; 
             return LegalValues.Contains(input);
         }
     }
 
-    public abstract class MenuHandler
+    public abstract class Menu<T> : Menu
     {
-        public Menu Menu { get; }
+        protected T State;
 
-        protected abstract void MenuOptions(string userInput);
-        protected bool MenuIsActive { get; set; } = true;
-
-        protected MenuHandler(Menu menu)
-        {
-            Menu = menu;
-        }
-
-        public void HandleMenu()
-        {
-            Console.WriteLine();
-
-            while (MenuIsActive)
-            {
-                var userInput = Menu.PrintMenuWithUserInput();
-
-                MenuOptions(userInput);
-
-            }
-
-            Console.WriteLine();
-        }
-    }
-
-    public abstract class MenuHandler<T>
-    {
-        protected Menu Menu { get; }
-        protected T State { get; }
-
-        protected abstract void MenuOptions(string userInput);
-        protected bool MenuIsActive { get; set; } = true;
-
-        protected MenuHandler(Menu menu, T state)
+        protected Menu(T state)
         {
             State = state;
-            Menu = menu;
-        }
-
-        public void HandleMenu()
-        {
-            Console.WriteLine();
-
-            while (MenuIsActive)
-            {
-                var userInput = Menu.PrintMenuWithUserInput();
-
-                MenuOptions(userInput);
-            }
-
-            Console.WriteLine();
         }
     }
 }

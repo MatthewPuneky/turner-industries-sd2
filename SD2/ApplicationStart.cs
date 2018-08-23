@@ -9,7 +9,7 @@ namespace SD2
         {
             PrintHeader();
 
-            MenuHandlerFactory.ApplicationMainMenu().HandleMenu();
+            MenuFactory.ApplicationMainMenu().Display();
         }
 
         public static void PrintHeader()

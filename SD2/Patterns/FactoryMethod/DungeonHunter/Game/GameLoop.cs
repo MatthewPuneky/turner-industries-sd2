@@ -30,8 +30,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 
         public static void WalkingPhase()
         {
-            var playerMenu = MenuHandlerFactory.PlayerMenu();
-            playerMenu.HandleMenu();
+            MenuFactory.PlayerMenu().Display();
         }
 
         public static void EncounterPhase()

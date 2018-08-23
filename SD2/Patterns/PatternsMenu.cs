@@ -34,19 +34,11 @@ namespace SD2.Patterns
             Console.WriteLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
             Console.WriteLine($" {(int)PatternsMenuOptions.Exit}: Exit Menu");
         }
-    }
-
-    public class PatternsMenuHandler : MenuHandler
-    {
-        public PatternsMenuHandler() 
-            : base(MenuFactory.PatternsMenu())
-        {
-        }
 
         protected override void MenuOptions(string userInput)
         {
             const string underConstruction = Constants.MenuConstants.UnderConstructionToUserResponse;
-            var option = (PatternsMenuOptions) int.Parse(userInput);
+            var option = (PatternsMenuOptions)int.Parse(userInput);
 
             switch (option)
             {

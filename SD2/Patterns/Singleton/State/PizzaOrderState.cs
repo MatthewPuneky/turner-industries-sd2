@@ -6,15 +6,7 @@ namespace SD2.Patterns.Singleton.State
     {
         private PizzaOrderState() { }
         private static PizzaOrderState _instance;
-
-        public static PizzaOrderState Instance
-        {
-            get
-            {
-                if (_instance == null) _instance = new PizzaOrderState();
-                return _instance;
-            }
-        } 
+        public static PizzaOrderState Instance => _instance ?? (_instance = new PizzaOrderState());
 
         public Pizza CurrentOrder { get; set; } = new Pizza();
     }

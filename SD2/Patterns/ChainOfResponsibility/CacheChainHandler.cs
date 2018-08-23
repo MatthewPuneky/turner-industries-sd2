@@ -2,16 +2,16 @@
 
 namespace SD2.Patterns.ChainOfResponsibility
 {
-    public abstract class CacheChainHandler<Request, Response>
+    public abstract class CacheChainHandler<TRequest, TResponse>
     {
-        protected CacheChainHandler<Request, Response> _successor;
+        public CacheChainHandler<TRequest, TResponse> Successor { get; protected set; }
 
-        public void SetSuccessor(CacheChainHandler<Request, Response> successor)
+        public void SetSuccessor(CacheChainHandler<TRequest, TResponse> successor)
         {
-            _successor = successor;
+            Successor = successor;
         }
 
-        public abstract Response HandleRequest(Request request);
+        public abstract TResponse HandleRequest(TRequest request);
         internal abstract void HandleResponse(CachedUser response);
     }
 }

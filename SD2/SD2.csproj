@@ -85,6 +85,9 @@
   <ItemGroup>
     <Compile Include="IRunnable.cs" />
     <Compile Include="ApplicationStart.cs" />
+    <Compile Include="Patterns\ChainOfResponsibility\UserFinder.cs" />
+    <Compile Include="Patterns\ChainOfResponsibility\Menus\FindUserMenu.cs" />
+    <Compile Include="Patterns\ChainOfResponsibility\StorageState.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\Attribute.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeFactory.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Characters\AttributeProfile.cs" />
@@ -102,11 +105,12 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Helpers\EnumHelper.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\IDescribable.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Loot.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Menus\SelectClassMenu.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\States\CharacterCreateState.cs" />
     <Compile Include="SharedFeatures\Common\Constants.cs" />
     <Compile Include="SharedFeatures\Menus\Menu.cs" />
     <Compile Include="SharedFeatures\Menus\MenuFactory.cs" />
-    <Compile Include="SharedFeatures\Menus\MenuHandlerFactory.cs" />
-    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\Menus\PlayerMenu.cs" />
+    <Compile Include="Patterns\FactoryMethod\DungeonHunter\Menus\PlayerMenu.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Common\ReflectiveEnumerator.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\DungeonHunterState.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Game\GameLoop.cs" />
@@ -154,6 +158,8 @@
   <ItemGroup>
     <Content Include="qdc.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SharedFeatures\State\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

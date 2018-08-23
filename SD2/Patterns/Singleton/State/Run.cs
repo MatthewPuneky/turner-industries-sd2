@@ -19,8 +19,7 @@ namespace SD2.Patterns.Singleton.State
 
         private static void SelectCrustType()
         {
-            var menu = MenuHandlerFactory.SelectCrustMenu();
-            menu.HandleMenu();
+            MenuFactory.SelectCrustMenu().Display();
         }
 
         private static void PrintPizzaOrder()

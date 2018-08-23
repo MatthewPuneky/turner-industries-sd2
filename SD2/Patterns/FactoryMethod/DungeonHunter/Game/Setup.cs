@@ -1,6 +1,8 @@
 ﻿using System;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
+using SD2.Patterns.FactoryMethod.DungeonHunter.States;
+using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 {
@@ -11,13 +13,13 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
             Console.WriteLine("CARACTER CREATION");
             Console.WriteLine();
 
-            var selectedClass = ClassSelection();
-            SetupAttributes(selectedClass);
-            SetCharacterName(selectedClass);
+            MenuFactory.SelectClassMenu().Display();
+            SetupAttributes(CharacterCreateState.Instance.ChosenCharacter);
+            SetCharacterName(CharacterCreateState.Instance.ChosenCharacter);
 
-            selectedClass.Initialize();
+            CharacterCreateState.Instance.ChosenCharacter.Initialize();
 
-            return selectedClass;
+            return CharacterCreateState.Instance.ChosenCharacter;
         }
 
         private static void SetCharacterName(PlayerCharacter selectedClass)
@@ -119,37 +121,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
             selectedClass.Strength.Value = currentStrength;
             selectedClass.Intelligence.Value = currentInteligence;
             selectedClass.Dexterity.Value = currentDexterity;
-        }
-
-        private static PlayerCharacter ClassSelection()
-        {
-            while (true)
-            {
-                Console.WriteLine("SELECT YOUR CLASS");
-
-                var Warrior = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Warrior);
-                var Rogue = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Rogue);
-                var Mage = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Mage);
-                
-                Console.WriteLine($"{(int)Warrior.ClassType}: {Warrior.ClassType}");
-                Console.WriteLine($"{(int)Rogue.ClassType}: {Rogue.ClassType}");
-                Console.WriteLine($"{(int)Mage.ClassType}: {Mage.ClassType}");
-
-                Console.Write("Select an option: ");
-                var userInput = Console.ReadLine();
-                Console.WriteLine();
-
-                var wasParseable = Enum.TryParse<PlayerCharacterClass>(userInput, out var option);
-                if (!wasParseable) continue;
-
-                switch (option)
-                {
-                    case PlayerCharacterClass.Warrior: return Warrior;
-                    case PlayerCharacterClass.Rogue: return Rogue;
-                    case PlayerCharacterClass.Mage: return Mage;
-                    default: Console.WriteLine("INVALID OPTION\n"); continue;
-                }
-            }
         }
     }
 }
