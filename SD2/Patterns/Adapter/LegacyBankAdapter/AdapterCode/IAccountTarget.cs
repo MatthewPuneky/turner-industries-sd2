@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using SD2.Patterns.Adapter.LegacyBankAdapter.ModernCode;
+using System.Numerics;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
 {
-    public interface IBankAdapter
+    public interface IAccountTarget
     {
-        bool IsLegacy { get; }
-
         string AccountNumber { get; }
 
         string GetHonorific { get; }
         void SetHonorific(Honorific honorific);
+
+        string GetFirstName { get; set; }
 
         string GetMiddleName { get; }
         void SetMiddleName(List<string> middleNames);
@@ -18,7 +19,7 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
         string GetLastName { get; }
         void SetLastName(List<string> lastNames);
 
-        double GetBalance { get; }
-        void SetBalance(int balance, int decimalLocation);
+        (BigInteger balance, int decimalLocation) GetBalance { get; }
+        void SetBalance(BigInteger balance, int decimalLocation);
     }
 }

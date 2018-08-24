@@ -22,7 +22,7 @@ namespace SD2.Patterns
 
             Console.WriteLine($" {(int)PatternsMenuOptions.FactoryMethod}: Factory Method");
             Console.WriteLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter {underConstruction}");
+            Console.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
             Console.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite {underConstruction}");
             Console.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator {underConstruction}");
             Console.WriteLine($" {(int)PatternsMenuOptions.Command}: Command {underConstruction}");
@@ -44,7 +44,7 @@ namespace SD2.Patterns
             {
                 case PatternsMenuOptions.FactoryMethod: FactoryMethod.DungeonHunter.Game.GameLoop.Start(); break;
                 case PatternsMenuOptions.Singleton: Singleton.State.Run.Operation(); break;
-                case PatternsMenuOptions.Adapter: Console.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Adapter: Adapter.LegacyBankAdapter.Run.Operation(); break;
                 case PatternsMenuOptions.Composite: Console.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Decorator: Console.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Command: Console.WriteLine(underConstruction); break;
