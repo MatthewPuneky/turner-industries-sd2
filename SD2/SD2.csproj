@@ -85,6 +85,12 @@
   <ItemGroup>
     <Compile Include="IRunnable.cs" />
     <Compile Include="ApplicationStart.cs" />
+    <Compile Include="Patterns\Adapter\LegacyBankAdapter\AdapterCode\IBankAdapter.cs" />
+    <Compile Include="Patterns\Adapter\LegacyBankAdapter\AdapterCode\LegacyBankAdapter.cs" />
+    <Compile Include="Patterns\Adapter\LegacyBankAdapter\AdapterCode\ModernBankAdapter.cs" />
+    <Compile Include="Patterns\Adapter\LegacyBankAdapter\LegacyCode\LegacyAccounts.cs" />
+    <Compile Include="Patterns\Adapter\LegacyBankAdapter\LegacyCode\LegacyBankingInfoWithBadNames.cs" />
+    <Compile Include="Patterns\Adapter\LegacyBankAdapter\ModernCode\ModernBankingInfo.cs" />
     <Compile Include="Patterns\Builder\Character.cs" />
     <Compile Include="Patterns\Builder\CharacterBuilder.cs" />
     <Compile Include="Patterns\Builder\CharacterBuilderDirector.cs" />

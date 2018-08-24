@@ -56,6 +56,6 @@ namespace SD2
         SolidPrincipals,
         TSql,
         DevOps,
-        Poop
+        Foo
     }
 }
