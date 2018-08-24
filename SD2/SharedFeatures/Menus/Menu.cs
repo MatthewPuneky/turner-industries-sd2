@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SD2.SharedFeatures.Menus
 {
     public abstract class Menu
     {
-        protected abstract List<string> LegalValues { get; }
-        protected abstract bool CanExit { get; }
+        protected virtual List<string> LegalValues => new List<string>();
+        protected virtual List<string> IllegalVales => new List<string>();
+        protected virtual bool AllInputLegal => false;
+
+        protected virtual bool CanExit => false;
 
         protected abstract void PrintMenuHeader();
         protected abstract void PrintMenuBody();
@@ -16,7 +20,14 @@ namespace SD2.SharedFeatures.Menus
 
         protected virtual void PrintUserInputPrompt()
         {
-            Console.Write("Select an option: ");
+            if(CanExit)
+            {
+                Console.Write($"Select an option (0 to exit): ");
+            }
+            else
+            {
+                Console.Write("Select an option: ");
+            }
         }
 
         protected string GetUserInput()
@@ -50,6 +61,11 @@ namespace SD2.SharedFeatures.Menus
             {
                 var userInput = PrintMenuWithUserInput();
 
+                if (CanExit && userInput == "0")
+                {
+                    break;
+                }
+
                 MenuOptions(userInput);
             }
 
@@ -58,8 +74,18 @@ namespace SD2.SharedFeatures.Menus
 
         private bool IsUserInputValid(string input)
         {
-            if (CanExit && input == "0") return true; 
-            return LegalValues.Contains(input);
+            var result = true;
+
+            if (AllInputLegal) return true;
+            if (CanExit && input == "0") return true;
+
+            var isNotLegalInput = LegalValues != null && LegalValues.Any() && !LegalValues.Contains(input);
+            var isIllegalInput = IllegalVales != null && IllegalVales.Any() && IllegalVales.Contains(input);
+
+            if (isNotLegalInput) result = false;
+            if (isIllegalInput) result = false;
+
+            return result;
         }
     }
 
@@ -67,7 +93,7 @@ namespace SD2.SharedFeatures.Menus
     {
         protected T State;
 
-        protected Menu(T state)
+        public Menu(T state)
         {
             State = state;
         }

@@ -23,8 +23,8 @@
 
     public enum AttributeType
     {
-        Strength = 0,
+        Strength = 1,
+        Dexterity,
         Intelligence,
-        Dexterity
     }
 }

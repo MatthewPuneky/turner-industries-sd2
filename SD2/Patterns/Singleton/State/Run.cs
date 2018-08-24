@@ -1,9 +1,4 @@
-﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.Singleton.State

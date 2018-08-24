@@ -2,7 +2,6 @@
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
 using System;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
 using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game

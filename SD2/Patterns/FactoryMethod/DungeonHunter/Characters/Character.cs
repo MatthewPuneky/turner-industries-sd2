@@ -9,6 +9,20 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 {
     public abstract class Character : IDescribable
     {
+        public abstract int TotalAttributePoints { get; set; }
+        public int RemainingStatsToDistribute
+        {
+            get
+            {
+                var remainingPoints = TotalAttributePoints;
+                remainingPoints -= Strength.Value;
+                remainingPoints -= Intelligence.Value;
+                remainingPoints -= Dexterity.Value;
+
+                return remainingPoints;
+            }
+        }
+
         public static int MiniumumStartingHealth = 10;
 
         public bool IsAlive { get; private set; } = true;

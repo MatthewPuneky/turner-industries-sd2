@@ -36,11 +36,6 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
             }
         }
 
-        protected override void PrintUserInputPrompt()
-        {
-            Console.Write("Select an option (0 to exit): ");
-        }
-
         protected override void MenuOptions(string userInput)
         {
             if (userInput == "0")

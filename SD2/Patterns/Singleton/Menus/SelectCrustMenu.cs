@@ -15,7 +15,6 @@ namespace SD2.Patterns.Singleton.Menus
         }
 
         protected override List<string> LegalValues => EnumHelper.PoistionValuesToStringList(typeof(CrustTypes));
-        protected override bool CanExit => false;
         
         protected override void PrintMenuHeader()
         {

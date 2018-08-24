@@ -32,7 +32,6 @@ namespace SD2.Patterns
             Console.WriteLine($"{(int)PatternsMenuOptions.Strategy}: Strategy {underConstruction}");
             Console.WriteLine($"{(int)PatternsMenuOptions.TemplateMehtod}: Template Method {underConstruction}");
             Console.WriteLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Exit}: Exit Menu");
         }
 
         protected override void MenuOptions(string userInput)
@@ -54,7 +53,6 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.Strategy: Console.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.TemplateMehtod: Console.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Visitor: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Exit: MenuIsActive = false; break;
                 default:
                     Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     break;
@@ -64,7 +62,6 @@ namespace SD2.Patterns
 
     public enum PatternsMenuOptions
     {
-        Exit = 0,
         FactoryMethod = 1,
         Singleton,
         Adapter,

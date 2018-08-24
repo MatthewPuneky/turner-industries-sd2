@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Game;
-using SD2.SharedFeatures.Common;
 using SD2.SharedFeatures.Menus;
+using static SD2.SharedFeatures.Common.Constants;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 {
@@ -28,7 +28,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
             Console.WriteLine($"{(int)PlayerMenuOptions.EquipArmor}: Equip Armor");
             Console.WriteLine($"{(int)PlayerMenuOptions.UsePotion}: Use Potion");
             Console.WriteLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
-            Console.WriteLine($"{(int)PlayerMenuOptions.Exit}: Leave Menu");
         }
 
         protected override void MenuOptions(string userInput)
@@ -37,13 +36,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 
             switch (option)
             {
-                case PlayerMenuOptions.EquipWeapon: Console.WriteLine("Under Construction"); break;
-                case PlayerMenuOptions.EquipArmor: Console.WriteLine("Under Construction"); break;
-                case PlayerMenuOptions.UsePotion: Console.WriteLine("Under Construction"); break;
-                case PlayerMenuOptions.DescribeSelf: Console.WriteLine("Under Construction"); break;
-                case PlayerMenuOptions.Exit: MenuIsActive = false; break;
+                case PlayerMenuOptions.EquipWeapon: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipArmor: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.UsePotion: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.DescribeSelf: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Console.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
                     break;
             }
         }
@@ -54,7 +52,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
         EquipWeapon = 1,
         EquipArmor,
         UsePotion,
-        DescribeSelf,
-        Exit
+        DescribeSelf
     }
 }

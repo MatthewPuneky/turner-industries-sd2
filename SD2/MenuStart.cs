@@ -9,7 +9,7 @@ namespace SD2
     public class ApplicationMainMenu : Menu
     {
         protected override List<string> LegalValues => EnumHelper.PoistionValuesToStringList(typeof(ApplicationMainMenuOptions));
-        protected override bool CanExit => false;
+        protected override bool CanExit => true;
 
         protected override void PrintMenuHeader()
         {

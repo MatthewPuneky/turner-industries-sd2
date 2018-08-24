@@ -11,6 +11,12 @@ namespace SD2.SharedFeatures.Menus
         public static ApplicationMainMenu ApplicationMainMenu() => new ApplicationMainMenu();
 
         public static SelectClassMenu SelectClassMenu() => new SelectClassMenu();
+        public static ManageStrengthMenu ManageStrengthMenu() => new ManageStrengthMenu();
+        public static ManageDexterityMenu ManageDexterityMenu() => new ManageDexterityMenu();
+        public static ManageIntelligenceMenu ManageIntelligenceMenu() => new ManageIntelligenceMenu();
+        public static ManageAttributesMenu ManageAttributesMenu() => new ManageAttributesMenu();
+        public static NamePlayerCharacterMenu NamePlayerCharacterMenu() => new NamePlayerCharacterMenu();
+
         public static PlayerMenu PlayerMenu() => new PlayerMenu();
 
         public static PatternsMenu PatternsMenu() => new PatternsMenu();

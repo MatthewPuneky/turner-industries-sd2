@@ -17,7 +17,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
         }
 
         protected override List<string> LegalValues { get; } = EnumHelper.PoistionValuesToStringList(typeof(PlayerCharacterClass));
-        protected override bool CanExit => false;
 
         protected override void PrintMenuHeader()
         {

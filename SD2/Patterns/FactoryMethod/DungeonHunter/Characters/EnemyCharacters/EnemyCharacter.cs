@@ -5,14 +5,13 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 {
     public abstract class EnemyCharacter : Character
     {
-        public abstract int AttributePool { get; }
         public abstract EnemyCharacterType EnemyCharacterType { get; }
         public bool WasLooted { get; private set; }
         public override CharacterController CharacterController => CharacterController.NPC;
 
         public EnemyCharacter()
         {
-            var attributeProfile = RandomizeAttributes(AttributePool);
+            var attributeProfile = RandomizeAttributes(TotalAttributePoints);
 
             Strength.Value = attributeProfile.Strength.Value;
             Intelligence.Value = attributeProfile.Dexterity.Value;
