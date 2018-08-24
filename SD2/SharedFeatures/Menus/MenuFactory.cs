@@ -1,4 +1,5 @@
 ﻿using SD2.Patterns;
+using SD2.Patterns.Builder.Menus;
 using SD2.Patterns.ChainOfResponsibility.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Menus;
@@ -23,5 +24,7 @@ namespace SD2.SharedFeatures.Menus
         public static SelectCrustMenu SelectCrustMenu() => new SelectCrustMenu();
 
         public static FindUserMenu FindUserMenu() => new FindUserMenu();
+
+        public static SelectClassToBuildMenu SelectClassToBuildMenu() => new SelectClassToBuildMenu();
     }
 }

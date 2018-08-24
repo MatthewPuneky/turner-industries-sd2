@@ -85,6 +85,15 @@
   <ItemGroup>
     <Compile Include="IRunnable.cs" />
     <Compile Include="ApplicationStart.cs" />
+    <Compile Include="Patterns\Builder\Character.cs" />
+    <Compile Include="Patterns\Builder\CharacterBuilder.cs" />
+    <Compile Include="Patterns\Builder\CharacterBuilderDirector.cs" />
+    <Compile Include="Patterns\Builder\CharacterBuilders\RangerBuilder.cs" />
+    <Compile Include="Patterns\Builder\CharacterBuilders\WarriorBuilder.cs" />
+    <Compile Include="Patterns\Builder\CharacterBuilders\WizzardBuilder.cs" />
+    <Compile Include="Patterns\Builder\Menus\SelectClassToBuildMenu.cs" />
+    <Compile Include="Patterns\Builder\Run.cs" />
+    <Compile Include="Patterns\Builder\States\BuilderPatternState.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\UserFinder.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\Menus\FindUserMenu.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\StorageState.cs" />

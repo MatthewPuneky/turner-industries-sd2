@@ -32,6 +32,7 @@ namespace SD2.Patterns
             Console.WriteLine($"{(int)PatternsMenuOptions.Strategy}: Strategy {underConstruction}");
             Console.WriteLine($"{(int)PatternsMenuOptions.TemplateMehtod}: Template Method {underConstruction}");
             Console.WriteLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
+            Console.WriteLine($"{(int)PatternsMenuOptions.Builder}: Builder");
         }
 
         protected override void MenuOptions(string userInput)
@@ -53,6 +54,7 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.Strategy: Console.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.TemplateMehtod: Console.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Visitor: Console.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Builder: Builder.Run.Operation(); break;
                 default:
                     Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     break;
@@ -74,5 +76,6 @@ namespace SD2.Patterns
         Strategy,
         TemplateMehtod,
         Visitor,
+        Builder,
     }
 }
