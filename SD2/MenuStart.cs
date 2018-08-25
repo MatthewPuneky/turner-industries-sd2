@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.SharedFeatures.Common;
@@ -13,19 +13,19 @@ namespace SD2
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("APPLICATION MAIN MENU");
+            Printer.WriteLine("APPLICATION MAIN MENU");
         }
 
         protected override void PrintMenuBody()
         {
             const string underConstruction = Constants.MenuConstants.UnderConstruction;
 
-            Console.WriteLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
-            Console.WriteLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
-            Console.WriteLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns ");
-            Console.WriteLine($"{(int)ApplicationMainMenuOptions.SolidPrincipals}: Solid Principals {underConstruction}");
-            Console.WriteLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
-            Console.WriteLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
+            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
+            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
+            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns ");
+            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.SolidPrincipals}: Solid Principals {underConstruction}");
+            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
+            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
         }
 
         protected override void MenuOptions(string userInput)
@@ -35,14 +35,14 @@ namespace SD2
 
             switch (option)
             {
-                case ApplicationMainMenuOptions.General: Console.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.Backend: Console.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.General: Printer.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.Backend: Printer.WriteLine(underConstruction); break;
                 case ApplicationMainMenuOptions.Patterns: MenuFactory.PatternsMenu().Display(); break;
-                case ApplicationMainMenuOptions.SolidPrincipals: Console.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.TSql: Console.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.DevOps: Console.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.SolidPrincipals: Printer.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.TSql: Printer.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.DevOps: Printer.WriteLine(underConstruction); break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     break;
             }
         }

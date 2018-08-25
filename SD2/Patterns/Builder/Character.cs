@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.Builder
 {
@@ -19,13 +15,13 @@ namespace SD2.Patterns.Builder
 
         public void Describe()
         { 
-            Console.WriteLine("YOUR BUILT CHARACTER");
-            Console.WriteLine($"Armor: {Armor}");
-            Console.WriteLine($"Weapon: {Weapon}");
-            Console.WriteLine($"Strength: {Strength}");
-            Console.WriteLine($"Intelligence: {Intelligence}");
-            Console.WriteLine($"Dexterity: {Dexterity}");
-            Console.WriteLine();
+            Printer.WriteLine("YOUR BUILT CHARACTER");
+            Printer.WriteLine($"Armor: {Armor}");
+            Printer.WriteLine($"Weapon: {Weapon}");
+            Printer.WriteLine($"Strength: {Strength}");
+            Printer.WriteLine($"Intelligence: {Intelligence}");
+            Printer.WriteLine($"Dexterity: {Dexterity}");
+            Printer.WriteLine();
         }
     }
 }

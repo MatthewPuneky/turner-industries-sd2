@@ -1,5 +1,5 @@
-﻿using SD2.SharedFeatures.Helpers;
-using System;
+﻿using System;
+using System.Threading;
 
 namespace SD2.SharedFeatures.Printers
 {
@@ -9,7 +9,14 @@ namespace SD2.SharedFeatures.Printers
     {
         public static void WriteLine(string line)
         {
+            Wait();
             Console.WriteLine(line);
+        }
+
+        public static void WriteLine()
+        {
+            Wait();
+            Console.WriteLine();
         }
 
         public static void Write(string partialLine)
@@ -24,12 +31,21 @@ namespace SD2.SharedFeatures.Printers
 
         public static void ClearPreviousLine()
         {
-            ConsoleHelpers.ClearPreviousLine();
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            ClearCurrentConsoleLine();
         }
 
         public static void ClearCurrentConsoleLine()
         {
-            ConsoleHelpers.ClearCurrentConsoleLine();
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
+        }
+
+        private static void Wait()
+        {
+            Thread.Sleep(90);
         }
     }
 }

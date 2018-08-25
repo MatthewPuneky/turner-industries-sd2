@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors
 {
@@ -11,7 +11,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors
 
         public override void PrintDescription()
         {
-            Console.WriteLine("Unarmored, like the day you were born.");
+            Printer.WriteLine("Unarmored, like the day you were born.");
         }
     }
 }

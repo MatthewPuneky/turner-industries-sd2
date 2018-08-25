@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.SharedFeatures.Common;
@@ -13,26 +13,26 @@ namespace SD2.Patterns
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("PATTERNS MENU");
+            Printer.WriteLine("PATTERNS MENU");
         }
 
         protected override void PrintMenuBody()
         {
             const string underConstruction = Constants.MenuConstants.UnderConstruction;
 
-            Console.WriteLine($" {(int)PatternsMenuOptions.FactoryMethod}: Factory Method");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite {underConstruction}");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator {underConstruction}");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Command}: Command {underConstruction}");
-            Console.WriteLine($" {(int)PatternsMenuOptions.ChainOfResponsiblity}: Chain of Responsibility");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Mediator}: Mediator {underConstruction}");
-            Console.WriteLine($" {(int)PatternsMenuOptions.Observer}: Observer {underConstruction}");
-            Console.WriteLine($"{(int)PatternsMenuOptions.Strategy}: Strategy {underConstruction}");
-            Console.WriteLine($"{(int)PatternsMenuOptions.TemplateMehtod}: Template Method {underConstruction}");
-            Console.WriteLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
-            Console.WriteLine($"{(int)PatternsMenuOptions.Builder}: Builder");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.FactoryMethod}: Factory Method");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite {underConstruction}");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator {underConstruction}");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Command}: Command {underConstruction}");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.ChainOfResponsiblity}: Chain of Responsibility");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Mediator}: Mediator {underConstruction}");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Observer}: Observer {underConstruction}");
+            Printer.WriteLine($"{(int)PatternsMenuOptions.Strategy}: Strategy {underConstruction}");
+            Printer.WriteLine($"{(int)PatternsMenuOptions.TemplateMehtod}: Template Method {underConstruction}");
+            Printer.WriteLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
+            Printer.WriteLine($"{(int)PatternsMenuOptions.Builder}: Builder");
         }
 
         protected override void MenuOptions(string userInput)
@@ -45,18 +45,18 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.FactoryMethod: FactoryMethod.DungeonHunter.Game.GameLoop.Start(); break;
                 case PatternsMenuOptions.Singleton: Singleton.State.Run.Operation(); break;
                 case PatternsMenuOptions.Adapter: Adapter.LegacyBankAdapter.Run.Operation(); break;
-                case PatternsMenuOptions.Composite: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Decorator: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Command: Console.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Composite: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Decorator: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Command: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.ChainOfResponsiblity: ChainOfResponsibility.Run.Operation(); break;
-                case PatternsMenuOptions.Mediator: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Observer: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Strategy: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.TemplateMehtod: Console.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Visitor: Console.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Mediator: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Observer: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Strategy: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.TemplateMehtod: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Visitor: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Builder: Builder.Run.Operation(); break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     break;
             }
         }

@@ -1,6 +1,6 @@
 ﻿using SD2.Patterns.FactoryMethod.DungeonHunter.States;
 using SD2.SharedFeatures.Menus;
-using System;
+using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
@@ -16,12 +16,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("SET YOUR CHARACTER NAME");
+            Printer.WriteLine("SET YOUR CHARACTER NAME");
         }
 
         protected override void PrintUserInputPrompt()
         {
-            Console.Write($"Character Name: ");
+            Printer.Write($"Character Name: ");
         }
 
         protected override void PrintMenuBody()

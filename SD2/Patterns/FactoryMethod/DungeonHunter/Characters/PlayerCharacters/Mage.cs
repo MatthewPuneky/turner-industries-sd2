@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
 {
@@ -8,7 +8,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
 
         public override void PrintDescription()
         {
-            Console.WriteLine("An old frail body with incredible magical energy.");
+            Printer.WriteLine("An old frail body with incredible magical energy.");
         }
     }
 }

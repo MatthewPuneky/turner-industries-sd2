@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
@@ -12,7 +12,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 
         public override void PrintDescription()
         {
-            Console.WriteLine("A frothing rat, larger than normal.");
+            Printer.WriteLine("A frothing rat, larger than normal.");
         }
     }
 }

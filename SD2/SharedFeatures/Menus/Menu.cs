@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,11 +22,11 @@ namespace SD2.SharedFeatures.Menus
         {
             if(CanExit)
             {
-                Console.Write($"Select an option (0 to exit): ");
+                Printer.Write($"Select an option (0 to exit): ");
             }
             else
             {
-                Console.Write("Select an option: ");
+                Printer.Write("Select an option: ");
             }
         }
 
@@ -35,14 +35,14 @@ namespace SD2.SharedFeatures.Menus
             while (true)
             {
                 PrintUserInputPrompt();
-                var input = Console.ReadLine();
+                var input = Printer.ReadLine();
 
                 if (IsUserInputValid(input))
                 {
                     return input;
                 }
 
-                Console.WriteLine("INVALID INPUT");
+                Printer.WriteLine("INVALID INPUT");
             }
         }
 
@@ -55,7 +55,7 @@ namespace SD2.SharedFeatures.Menus
         
         public void Display()
         {
-            Console.WriteLine();
+            Printer.WriteLine();
 
             while (MenuIsActive)
             {
@@ -69,7 +69,7 @@ namespace SD2.SharedFeatures.Menus
                 MenuOptions(userInput);
             }
 
-            Console.WriteLine();
+            Printer.WriteLine();
         }
 
         private bool IsUserInputValid(string input)

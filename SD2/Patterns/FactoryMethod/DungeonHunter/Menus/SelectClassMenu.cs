@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
@@ -20,14 +20,14 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("SELECT YOUR CLASS");
+            Printer.WriteLine("SELECT YOUR CLASS");
         }
 
         protected override void PrintMenuBody()
         {
-            Console.WriteLine($"{(int)PlayerCharacterClass.Warrior}: {PlayerCharacterClass.Warrior}");
-            Console.WriteLine($"{(int)PlayerCharacterClass.Rogue}: {PlayerCharacterClass.Rogue}");
-            Console.WriteLine($"{(int)PlayerCharacterClass.Mage}: {PlayerCharacterClass.Mage}");
+            Printer.WriteLine($"{(int)PlayerCharacterClass.Warrior}: {PlayerCharacterClass.Warrior}");
+            Printer.WriteLine($"{(int)PlayerCharacterClass.Rogue}: {PlayerCharacterClass.Rogue}");
+            Printer.WriteLine($"{(int)PlayerCharacterClass.Mage}: {PlayerCharacterClass.Mage}");
         }
 
         protected override void MenuOptions(string userInput)
@@ -47,7 +47,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
                     State.ChosenCharacter = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Mage);
                     break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

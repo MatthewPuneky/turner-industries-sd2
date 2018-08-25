@@ -3,8 +3,8 @@ using SD2.Patterns.Builder.States;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.SharedFeatures.Common;
 using SD2.SharedFeatures.Menus;
-using System;
 using System.Collections.Generic;
+using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.Builder.Menus
 {
@@ -22,14 +22,14 @@ namespace SD2.Patterns.Builder.Menus
         
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("SELECT A CLASS TO BUILD");
+            Printer.WriteLine("SELECT A CLASS TO BUILD");
         }
 
         protected override void PrintMenuBody()
         {
-            Console.WriteLine($"{(int)BuildableClassTypes.Warrior}: {BuildableClassTypes.Warrior}");
-            Console.WriteLine($"{(int)BuildableClassTypes.Ranger}: {BuildableClassTypes.Ranger}");
-            Console.WriteLine($"{(int)BuildableClassTypes.Wizzard}: {BuildableClassTypes.Wizzard}");
+            Printer.WriteLine($"{(int)BuildableClassTypes.Warrior}: {BuildableClassTypes.Warrior}");
+            Printer.WriteLine($"{(int)BuildableClassTypes.Ranger}: {BuildableClassTypes.Ranger}");
+            Printer.WriteLine($"{(int)BuildableClassTypes.Wizzard}: {BuildableClassTypes.Wizzard}");
         }
 
         protected override void MenuOptions(string userInput)
@@ -56,7 +56,7 @@ namespace SD2.Patterns.Builder.Menus
                     State.Character = builder.GetResult();
                     break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

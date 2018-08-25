@@ -5,7 +5,7 @@ using SD2.Patterns.Adapter.LegacyBankAdapter.State;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.SharedFeatures.Common;
 using SD2.SharedFeatures.Menus;
-using System;
+using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using static SD2.SharedFeatures.Common.Constants;
 
@@ -23,15 +23,15 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("LEGACY BANK ADAPTER");
+            Printer.WriteLine("LEGACY BANK ADAPTER");
         }
 
         protected override void PrintMenuBody()
         {
-            Console.WriteLine($"{(int)LegacyBankAdapterMenuOptions.All}: Display All Accounts");
-            Console.WriteLine($"{(int)LegacyBankAdapterMenuOptions.BankOfFoo}: Display CompanyA Accounts");
-            Console.WriteLine($"{(int)LegacyBankAdapterMenuOptions.BankOfBar}: Display CompanyB Accounts");
-            Console.WriteLine($"{(int)LegacyBankAdapterMenuOptions.CreateNew}: Create New Account");
+            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.All}: Display All Accounts");
+            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.BankOfFoo}: Display CompanyA Accounts");
+            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.BankOfBar}: Display CompanyB Accounts");
+            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.CreateNew}: Create New Account");
         }
 
         protected override void MenuOptions(string userInput)
@@ -52,9 +52,9 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
                 case LegacyBankAdapterMenuOptions.BankOfBar:
                     HandleBankOfBarAccounts();
                     break;
-                case LegacyBankAdapterMenuOptions.CreateNew: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case LegacyBankAdapterMenuOptions.CreateNew: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
                 default:
-                    Console.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
                     break;
             }
 

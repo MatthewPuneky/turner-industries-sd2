@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.States;
 using SD2.SharedFeatures.Menus;
@@ -9,8 +9,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
     {
         public static PlayerCharacter CreateYourCharacter()
         {
-            Console.WriteLine("CHARACTER CREATION");
-            Console.WriteLine();
+            Printer.WriteLine("CHARACTER CREATION");
+            Printer.WriteLine();
 
             MenuFactory.SelectClassMenu().Display();
             MenuFactory.ManageAttributesMenu().Display();

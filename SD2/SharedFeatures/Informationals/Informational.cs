@@ -1,6 +1,6 @@
-﻿using SD2.SharedFeatures.Helpers;
+﻿using SD2.SharedFeatures.Printers;
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
 namespace SD2.SharedFeatures.Informationals
 {
@@ -31,7 +31,7 @@ namespace SD2.SharedFeatures.Informationals
         {
             foreach(var line in LoadLinesToDisplay())
             {
-                Console.WriteLine(line);
+                Printer.WriteLine(line);
 
                 if(DisplayInformationPaged)
                 {
@@ -41,7 +41,7 @@ namespace SD2.SharedFeatures.Informationals
                     {
                         if (GetValidInputFromUser() == InformationalOptions.Exit)
                         {
-                            Console.WriteLine();
+                            Printer.WriteLine();
                             return;
                         }
 
@@ -55,10 +55,10 @@ namespace SD2.SharedFeatures.Informationals
 
         private void Salutation()
         {
-            Console.Write($"{InformUserOfEndOfList()} - [ENTER] to exit: ");
-            Console.ReadLine();
-            
-            ConsoleHelpers.ClearPreviousLine();
+            Printer.Write($"{InformUserOfEndOfList()} - [ENTER] to exit: ");
+            Printer.ReadLine();
+
+            Printer.ClearPreviousLine();
         }
 
         private InformationalOptions GetValidInputFromUser()
@@ -69,8 +69,8 @@ namespace SD2.SharedFeatures.Informationals
             while (userInputIsInvalid)
             {
                 userInputIsInvalid = false;
-                Console.Write($"{HowToContinune()} - {HowToExitPagedMenu()}: ");
-                var userInput = Console.ReadLine();
+                Printer.Write($"{HowToContinune()} - {HowToExitPagedMenu()}: ");
+                var userInput = Printer.ReadLine();
 
                 switch(userInput.ToUpper())
                 {
@@ -81,8 +81,8 @@ namespace SD2.SharedFeatures.Informationals
                     case "EXIT": valueToReturn = InformationalOptions.Exit; break;
                     default: userInputIsInvalid = true; break;
                 }
-                
-                ConsoleHelpers.ClearPreviousLine();
+
+                Printer.ClearPreviousLine();
             }
 
             return valueToReturn;

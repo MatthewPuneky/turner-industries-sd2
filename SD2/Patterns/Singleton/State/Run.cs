@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using SD2.SharedFeatures.Menus;
 
 namespace SD2.Patterns.Singleton.State
@@ -21,9 +21,9 @@ namespace SD2.Patterns.Singleton.State
         {
             var state = PizzaOrderState.Instance;
 
-            Console.WriteLine($"Crust: {state.CurrentOrder.Crust}");
+            Printer.WriteLine($"Crust: {state.CurrentOrder.Crust}");
 
-            Console.ReadLine();
+            Printer.ReadLine();
         }
     }
 }

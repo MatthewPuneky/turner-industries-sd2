@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Bow
 {
@@ -9,12 +9,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Bow
 
         public override void PrintDescription()
         {
-            Console.WriteLine("Cracked from top to bottom, but it can still shoot");
+            Printer.WriteLine("Cracked from top to bottom, but it can still shoot");
         }
 
         public override void PrintWeaponAttack()
         {
-            Console.WriteLine("The bow creeks as the arrow hurls towards its target!");
+            Printer.WriteLine("The bow creeks as the arrow hurls towards its target!");
         }
     }
 }

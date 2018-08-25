@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
 {
@@ -15,9 +15,9 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
         {
             switch (Weilder.UnarmedAttackStyle)
             {
-                case UnarmedAttackStyle.Fist: Console.WriteLine("Fists fly violently through the air!"); break;
-                case UnarmedAttackStyle.Claws: Console.WriteLine("Claws slice towards their enemy!"); break;
-                default: Console.WriteLine($"(unknown unarmed attack style {Weilder.UnarmedAttackStyle})"); break;
+                case UnarmedAttackStyle.Fist: Printer.WriteLine("Fists fly violently through the air!"); break;
+                case UnarmedAttackStyle.Claws: Printer.WriteLine("Claws slice towards their enemy!"); break;
+                default: Printer.WriteLine($"(unknown unarmed attack style {Weilder.UnarmedAttackStyle})"); break;
             }
         }
 
@@ -25,12 +25,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
         {
             switch (Weilder.UnarmedAttackStyle)
             {
-                case UnarmedAttackStyle.Fist: Console.WriteLine("Only knuckles for bare fist brawling."); break;
-                case UnarmedAttackStyle.Claws: Console.WriteLine("Serrated claws meant for rending."); break;
-                default: Console.WriteLine($"(unknown unarmed attack style {Weilder.UnarmedAttackStyle})"); break;
+                case UnarmedAttackStyle.Fist: Printer.WriteLine("Only knuckles for bare fist brawling."); break;
+                case UnarmedAttackStyle.Claws: Printer.WriteLine("Serrated claws meant for rending."); break;
+                default: Printer.WriteLine($"(unknown unarmed attack style {Weilder.UnarmedAttackStyle})"); break;
             }
 
-            Console.WriteLine();
+            Printer.WriteLine();
         }
     }
 

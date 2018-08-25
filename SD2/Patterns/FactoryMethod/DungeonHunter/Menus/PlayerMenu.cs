@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Game;
@@ -19,15 +19,15 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("PLAYER MENU");
+            Printer.WriteLine("PLAYER MENU");
         }
 
         protected override void PrintMenuBody()
         {
-            Console.WriteLine($"{(int)PlayerMenuOptions.EquipWeapon}: Equip Weapon");
-            Console.WriteLine($"{(int)PlayerMenuOptions.EquipArmor}: Equip Armor");
-            Console.WriteLine($"{(int)PlayerMenuOptions.UsePotion}: Use Potion");
-            Console.WriteLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
+            Printer.WriteLine($"{(int)PlayerMenuOptions.EquipWeapon}: Equip Weapon");
+            Printer.WriteLine($"{(int)PlayerMenuOptions.EquipArmor}: Equip Armor");
+            Printer.WriteLine($"{(int)PlayerMenuOptions.UsePotion}: Use Potion");
+            Printer.WriteLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
         }
 
         protected override void MenuOptions(string userInput)
@@ -36,12 +36,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 
             switch (option)
             {
-                case PlayerMenuOptions.EquipWeapon: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.EquipArmor: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.UsePotion: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.DescribeSelf: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipWeapon: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipArmor: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.UsePotion: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.DescribeSelf: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
                 default:
-                    Console.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
                     break;
             }
         }

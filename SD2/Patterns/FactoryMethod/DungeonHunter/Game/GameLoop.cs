@@ -1,8 +1,9 @@
 ﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
-using System;
+using SD2.SharedFeatures.Printers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Characters;
 using SD2.SharedFeatures.Menus;
+using System;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 {
@@ -36,27 +37,27 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
         {
             var enemy = EnemyCharacterFactory.Generate();
 
-            Console.WriteLine($"A hostile {enemy.CharacterName} has appeard!");
+            Printer.WriteLine($"A hostile {enemy.CharacterName} has appeard!");
             
             while (Player.IsAlive && enemy.IsAlive)
             {
                 var playerTurn = true;
                 var playerActions = 2;
-                Console.Write("PLAYER ATTCK PHASE");
+                Printer.Write("PLAYER ATTCK PHASE");
                 while (playerTurn && Player.IsAlive)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("BATTLE MENU");
-                    Console.WriteLine("1: Attack");
-                    //Console.WriteLine("2: Defend");
-                    //Console.WriteLine("3: Move");
-                    //Console.WriteLine("4: Identify");
-                    //Console.WriteLine("5: Player Menu");
-                    //Console.WriteLine("6: Game Menu");
-                    Console.Write("Select an option: ");
+                    Printer.WriteLine();
+                    Printer.WriteLine("BATTLE MENU");
+                    Printer.WriteLine("1: Attack");
+                    //Printer.WriteLine("2: Defend");
+                    //Printer.WriteLine("3: Move");
+                    //Printer.WriteLine("4: Identify");
+                    //Printer.WriteLine("5: Player Menu");
+                    //Printer.WriteLine("6: Game Menu");
+                    Printer.Write("Select an option: ");
 
-                    var userInput = Console.ReadLine();
-                    Console.WriteLine();
+                    var userInput = Printer.ReadLine();
+                    Printer.WriteLine();
 
                     var wasParseable = int.TryParse(userInput, out var option);
                     if (!wasParseable) continue;
@@ -67,13 +68,13 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
                     }
 
                 }
-                Console.WriteLine();
+                Printer.WriteLine();
 
                 var enemyTurn = true;
                 var enemyActions = 2;
                 if (enemy.IsAlive)
                 {
-                    Console.Write("ENEMY ATTCK PHASE");
+                    Printer.Write("ENEMY ATTCK PHASE");
                 }
                 else
                 {
@@ -82,14 +83,14 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 
                 while (enemyTurn)
                 {
-                    Console.WriteLine();
+                    Printer.WriteLine();
                     (enemyTurn, enemyActions) = TryAttackPhase(enemy, Player, enemyActions);
                 }
-                Console.WriteLine();
+                Printer.WriteLine();
             }
 
-            Console.WriteLine("BATTLE COMPLETE");
-            Console.WriteLine();
+            Printer.WriteLine("BATTLE COMPLETE");
+            Printer.WriteLine();
         }
 
         private static (bool, int) TryAttackPhase(Character aggressor, Character target, int remainingActions)
@@ -100,14 +101,14 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
             {
                 if (aggressor.CharacterController == CharacterController.Player)
                 {
-                    Console.WriteLine("ATTACK MENU");
-                    Console.WriteLine("0: Return to Battle Menu");
-                    Console.WriteLine("1: Half Attack");
-                    Console.WriteLine("2: Full Attack");
-                    Console.Write("Select an option: ");
+                    Printer.WriteLine("ATTACK MENU");
+                    Printer.WriteLine("0: Return to Battle Menu");
+                    Printer.WriteLine("1: Half Attack");
+                    Printer.WriteLine("2: Full Attack");
+                    Printer.Write("Select an option: ");
 
-                    var userInput = Console.ReadLine();
-                    Console.WriteLine();
+                    var userInput = Printer.ReadLine();
+                    Printer.WriteLine();
 
                     var wasParseable = int.TryParse(userInput, out option);
                     if (!wasParseable) continue;
@@ -124,15 +125,15 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
                 switch (option)
                 {
                     case 0:
-                        Console.WriteLine("Returning to battle menu...");
+                        Printer.WriteLine("Returning to battle menu...");
                         return (true, 0);
                     case 1:
-                        Console.WriteLine("Half attack");
+                        Printer.WriteLine("Half attack");
                         if (remainingActions >= 1) target.GetAttacked(aggressor.AttackWithWeapon() / 2);
                         else return (false, remainingActions);
                         return remainingActions - 1 == 0 ? (false, 0) : (true, remainingActions - 1);
                     case 2:
-                        Console.WriteLine("FULL ATTACK!");
+                        Printer.WriteLine("FULL ATTACK!");
                         if (remainingActions >= 2) target.GetAttacked(aggressor.AttackWithWeapon());
                         else return (false, remainingActions);
                         return remainingActions - 2 == 0 ? (false, 0) : (true, remainingActions - 2);
@@ -143,23 +144,23 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
 
         private static void PrintTitle()
         {
-            Console.WriteLine(@" ______            _        _______  _______  _______  _       ");
-            Console.WriteLine(@"(  __  \ |\     /|( (    /|(  ____ \(  ____ \(  ___  )( (    /|");
-            Console.WriteLine(@"| (  \  )| )   ( ||  \  ( || (    \/| (    \/| (   ) ||  \  ( |");
-            Console.WriteLine(@"| |   ) || |   | ||   \ | || |      | (__    | |   | ||   \ | |");
-            Console.WriteLine(@"| |   | || |   | || (\ \) || | ____ |  __)   | |   | || (\ \) |");
-            Console.WriteLine(@"| |   ) || |   | || | \   || | \_  )| (      | |   | || | \   |");
-            Console.WriteLine(@"| (__/  )| (___) || )  \  || (___) || (____/\| (___) || )  \  |");
-            Console.WriteLine(@"(______/ (_______)|/    )_)(_______)(_______/(_______)|/    )_)");
-            Console.WriteLine(@"                       _       _________ _______  _______ ");
-            Console.WriteLine(@"    |\     /||\     /|( (    /|\__   __/(  ____ \(  ____ )");
-            Console.WriteLine(@"    | )   ( || )   ( ||  \  ( |   ) (   | (    \/| (    )|");
-            Console.WriteLine(@"    | (___) || |   | ||   \ | |   | |   | (__    | (____)|");
-            Console.WriteLine(@"    |  ___  || |   | || (\ \) |   | |   |  __)   |     __)");
-            Console.WriteLine(@"    | (   ) || |   | || | \   |   | |   | (      | (\ (   ");
-            Console.WriteLine(@"    | )   ( || (___) || )  \  |   | |   | (____/\| ) \ \__");
-            Console.WriteLine(@"    |/     \|(_______)|/    )_)   )_(   (_______/|/   \__/");
-            Console.WriteLine();
+            Printer.WriteLine(@" ______            _        _______  _______  _______  _       ");
+            Printer.WriteLine(@"(  __  \ |\     /|( (    /|(  ____ \(  ____ \(  ___  )( (    /|");
+            Printer.WriteLine(@"| (  \  )| )   ( ||  \  ( || (    \/| (    \/| (   ) ||  \  ( |");
+            Printer.WriteLine(@"| |   ) || |   | ||   \ | || |      | (__    | |   | ||   \ | |");
+            Printer.WriteLine(@"| |   | || |   | || (\ \) || | ____ |  __)   | |   | || (\ \) |");
+            Printer.WriteLine(@"| |   ) || |   | || | \   || | \_  )| (      | |   | || | \   |");
+            Printer.WriteLine(@"| (__/  )| (___) || )  \  || (___) || (____/\| (___) || )  \  |");
+            Printer.WriteLine(@"(______/ (_______)|/    )_)(_______)(_______/(_______)|/    )_)");
+            Printer.WriteLine(@"                       _       _________ _______  _______ ");
+            Printer.WriteLine(@"    |\     /||\     /|( (    /|\__   __/(  ____ \(  ____ )");
+            Printer.WriteLine(@"    | )   ( || )   ( ||  \  ( |   ) (   | (    \/| (    )|");
+            Printer.WriteLine(@"    | (___) || |   | ||   \ | |   | |   | (__    | (____)|");
+            Printer.WriteLine(@"    |  ___  || |   | || (\ \) |   | |   |  __)   |     __)");
+            Printer.WriteLine(@"    | (   ) || |   | || | \   |   | |   | (      | (\ (   ");
+            Printer.WriteLine(@"    | )   ( || (___) || )  \  |   | |   | (____/\| ) \ \__");
+            Printer.WriteLine(@"    |/     \|(_______)|/    )_)   )_(   (_______/|/   \__/");
+            Printer.WriteLine();
         }
     }
 }

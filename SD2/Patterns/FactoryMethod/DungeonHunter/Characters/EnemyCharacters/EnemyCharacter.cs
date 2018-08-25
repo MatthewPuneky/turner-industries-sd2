@@ -1,5 +1,6 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
+using System;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 {
@@ -61,7 +62,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 
         private void PrintCantLootTarget()
         {
-            Console.WriteLine($"Cannot loot {CharacterName}.");
+            Printer.WriteLine($"Cannot loot {CharacterName}.");
         }
     }
 

@@ -1,5 +1,5 @@
 ﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Common;
-using System;
+using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

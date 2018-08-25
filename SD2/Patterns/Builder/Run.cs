@@ -1,6 +1,6 @@
 ﻿using SD2.Patterns.Builder.States;
 using SD2.SharedFeatures.Menus;
-using System;
+using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Plates
 {
@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Plates
 
         public override void PrintDescription()
         {
-            Console.WriteLine("This armor was definitely used in a war, gashes all over but will offer some protection.");
+            Printer.WriteLine("This armor was definitely used in a war, gashes all over but will offer some protection.");
         }
     }
 }

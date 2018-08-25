@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Wand
 {
@@ -9,12 +9,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Wand
 
         public override void PrintDescription()
         {
-            Console.WriteLine("The wand is so warped it's incredible it can even fire straight.");
+            Printer.WriteLine("The wand is so warped it's incredible it can even fire straight.");
         }
 
         public override void PrintWeaponAttack()
         {
-            Console.WriteLine("Thin magic streams crackle out of the wand!");
+            Printer.WriteLine("Thin magic streams crackle out of the wand!");
         }
     }
 }

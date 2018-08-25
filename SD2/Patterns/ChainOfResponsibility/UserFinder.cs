@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,20 +11,20 @@ namespace SD2.Patterns.ChainOfResponsibility
     {
         public void Find(int userId)
         {
-            Console.WriteLine();
+            Printer.WriteLine();
 
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             var response = StorageState.Instance.TopOfChain.HandleRequest(userId);
             stopwatch.Stop();
 
-            Console.WriteLine(response != null
+            Printer.WriteLine(response != null
                 ? $"User {response.User.Username} was found."
                 : $"User was not found.");
 
-            Console.WriteLine($"Elapsed time is {stopwatch.Elapsed}");
+            Printer.WriteLine($"Elapsed time is {stopwatch.Elapsed}");
 
-            Console.WriteLine();
+            Printer.WriteLine();
         }
     }
 }

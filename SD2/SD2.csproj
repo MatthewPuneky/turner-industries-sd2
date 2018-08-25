@@ -137,7 +137,6 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Menus\SelectClassMenu.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\States\CharacterCreateState.cs" />
     <Compile Include="SharedFeatures\Common\Constants.cs" />
-    <Compile Include="SharedFeatures\Helpers\ConsoleHelpers.cs" />
     <Compile Include="SharedFeatures\Informationals\Informational.cs" />
     <Compile Include="SharedFeatures\Menus\Menu.cs" />
     <Compile Include="SharedFeatures\Menus\MenuFactory.cs" />

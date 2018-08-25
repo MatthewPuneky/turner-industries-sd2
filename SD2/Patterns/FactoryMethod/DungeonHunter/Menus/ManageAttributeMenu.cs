@@ -1,6 +1,6 @@
 ﻿using SD2.Patterns.FactoryMethod.DungeonHunter.States;
 using SD2.SharedFeatures.Menus;
-using System;
+using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Linq;
 using static SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers.IEnumerableHelpers;
@@ -24,17 +24,17 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuBody()
         {
-            Console.WriteLine("Current Stats");
-            Console.Write($"Str: {State.ChosenCharacter.Strength.Value} - ");
-            Console.Write($"Int: {State.ChosenCharacter.Dexterity.Value} - ");
-            Console.Write($"Dex: {State.ChosenCharacter.Intelligence.Value}");
-            Console.WriteLine($"Remaining Points : {State.ChosenCharacter.RemainingStatsToDistribute}");
+            Printer.WriteLine("Current Stats");
+            Printer.Write($"Str: {State.ChosenCharacter.Strength.Value} - ");
+            Printer.Write($"Int: {State.ChosenCharacter.Dexterity.Value} - ");
+            Printer.Write($"Dex: {State.ChosenCharacter.Intelligence.Value}");
+            Printer.WriteLine($"Remaining Points : {State.ChosenCharacter.RemainingStatsToDistribute}");
         }
 
         protected override void PrintUserInputPrompt()
         {
             var remainingPoints = State.ChosenCharacter.RemainingStatsToDistribute;
-            Console.Write($"Select a value (0-{remainingPoints}): ");
+            Printer.Write($"Select a value (0-{remainingPoints}): ");
         }
     }
 
@@ -42,7 +42,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
     {
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("ENTER STRENGTH");
+            Printer.WriteLine("ENTER STRENGTH");
         }
 
         protected override void MenuOptions(string userInput)
@@ -57,7 +57,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
     {
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("ENTER DEXTERITY");
+            Printer.WriteLine("ENTER DEXTERITY");
         }
 
         protected override void MenuOptions(string userInput)
@@ -72,7 +72,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
     {
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("ENTER INTELLIGENCE");
+            Printer.WriteLine("ENTER INTELLIGENCE");
         }
 
         protected override void MenuOptions(string userInput)

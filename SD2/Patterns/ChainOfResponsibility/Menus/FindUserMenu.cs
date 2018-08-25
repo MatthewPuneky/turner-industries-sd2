@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
 
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("FIND USER MENU");
+            Printer.WriteLine("FIND USER MENU");
         }
 
         protected override void PrintMenuBody()
@@ -32,7 +32,7 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
 
             foreach (var option in options)
             {
-                Console.WriteLine($"{option.Id.ToString().PadLeft(maxOptionWidth)}: {option.Username}");
+                Printer.WriteLine($"{option.Id.ToString().PadLeft(maxOptionWidth)}: {option.Username}");
             }
         }
 

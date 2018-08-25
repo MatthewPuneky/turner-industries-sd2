@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Daggers
 {
@@ -12,12 +12,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Daggers
 
         public override void PrintDescription()
         {
-            Console.WriteLine("It might as well be a kitchen knife.");
+            Printer.WriteLine("It might as well be a kitchen knife.");
         }
 
         public override void PrintWeaponAttack()
         {
-            Console.WriteLine("The Rusty Dagger flings towrads its opponent!");
+            Printer.WriteLine("The Rusty Dagger flings towrads its opponent!");
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using System;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
+﻿using SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters;
+using System;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
-using System;
+using SD2.SharedFeatures.Printers;
 using SD2.Patterns.Singleton.State;
 using SD2.SharedFeatures.Common;
 using SD2.SharedFeatures.Menus;
@@ -18,14 +18,14 @@ namespace SD2.Patterns.Singleton.Menus
         
         protected override void PrintMenuHeader()
         {
-            Console.WriteLine("SELECT CRUST");
+            Printer.WriteLine("SELECT CRUST");
         }
 
         protected override void PrintMenuBody()
         {
-            Console.WriteLine($"{(int)CrustTypes.PanTossed}: Pan Tossed");
-            Console.WriteLine($"{(int)CrustTypes.Thin}: Thin");
-            Console.WriteLine($"{(int)CrustTypes.StuffedCrust}: Stuffed Crust");
+            Printer.WriteLine($"{(int)CrustTypes.PanTossed}: Pan Tossed");
+            Printer.WriteLine($"{(int)CrustTypes.Thin}: Thin");
+            Printer.WriteLine($"{(int)CrustTypes.StuffedCrust}: Stuffed Crust");
         }
 
         protected override void MenuOptions(string userInput)
@@ -40,7 +40,7 @@ namespace SD2.Patterns.Singleton.Menus
                 case CrustTypes.Thin: State.CurrentOrder.Crust = "Thin"; break;
                 case CrustTypes.StuffedCrust: State.CurrentOrder.Crust = "Stuffed Crust"; break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

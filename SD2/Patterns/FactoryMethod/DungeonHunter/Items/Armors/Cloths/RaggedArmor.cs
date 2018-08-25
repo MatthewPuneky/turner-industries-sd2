@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Cloths
 {
@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Cloths
 
         public override void PrintDescription()
         {
-            Console.WriteLine("Holes all over, but at least it keeps the cold out.");
+            Printer.WriteLine("Holes all over, but at least it keeps the cold out.");
         }
     }
 }

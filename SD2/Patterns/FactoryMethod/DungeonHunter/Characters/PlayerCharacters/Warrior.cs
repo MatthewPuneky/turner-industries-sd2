@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +12,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
 
         public override void PrintDescription()
         {
-            Console.WriteLine("A hearty being, able to weild mighty weapons.");
+            Printer.WriteLine("A hearty being, able to weild mighty weapons.");
         }
     }
 }
