@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SD2.Patterns.Adapter.LegacyBankAdapter.State;
+using SD2.SharedFeatures.Informationals;
+using System;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
 {

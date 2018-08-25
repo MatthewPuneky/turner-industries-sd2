@@ -13,5 +13,6 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.State
 
         public List<BankOfFooAccount> BankOfFooAccounts { get; set; } = new BankOfFooDataBank().GetAllFooAccounts();
         public List<BankOfBarAccount> BankOfBarAccounts { get; set; } = new BankOfBarDataBank().GetAllBarAccounts();
+        public List<IAccountTarget> AccountsToPrint { get; set; } = new List<IAccountTarget>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode;
+using SD2.Patterns.Adapter.LegacyBankAdapter.Informationals;
 using SD2.Patterns.Adapter.LegacyBankAdapter.LegacyCode;
 using SD2.Patterns.Adapter.LegacyBankAdapter.State;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
@@ -35,6 +36,8 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
 
         protected override void MenuOptions(string userInput)
         {
+            State.AccountsToPrint = new List<IAccountTarget>();
+
             var option = (LegacyBankAdapterMenuOptions)int.Parse(userInput);
 
             switch(option)
@@ -51,9 +54,11 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
                     break;
                 case LegacyBankAdapterMenuOptions.CreateNew: Console.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
                 default:
-                    Console.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Console.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
                     break;
             }
+
+            AdapterInformationalFactory.DisplayMultipleAccountsInformational().Display();
         }
 
         private void HandleBankOfFooAccounts()
@@ -62,7 +67,7 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
             State.BankOfFooAccounts.ForEach(fooAccount => {
                 adapter.FooAccount = fooAccount;
                 IAccountTarget account = adapter;
-                IAccountTargetHelpers.PrintDescriptions(account);
+                State.AccountsToPrint.Add(account);
             });
         }
 
@@ -72,7 +77,7 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
             State.BankOfBarAccounts.ForEach(barAccount => {
                 adapter.BarAccount = barAccount;
                 IAccountTarget account = adapter;
-                IAccountTargetHelpers.PrintDescriptions(account);
+                State.AccountsToPrint.Add(account);
             });
         }
     }

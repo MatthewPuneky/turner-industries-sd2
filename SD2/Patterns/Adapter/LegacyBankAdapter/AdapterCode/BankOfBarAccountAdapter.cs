@@ -3,7 +3,6 @@ using System.Linq;
 using SD2.Patterns.Adapter.LegacyBankAdapter.LegacyCode;
 using SD2.Patterns.Adapter.LegacyBankAdapter.ModernCode;
 using System.Numerics;
-using System;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
 {
