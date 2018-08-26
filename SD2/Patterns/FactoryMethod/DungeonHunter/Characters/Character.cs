@@ -138,7 +138,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
             Printer.WriteLine($"{CharacterName} dodged the attack!");
         }
         
-        public abstract void PrintDescription();
+        public abstract void Describe();
     }
 
     public enum CharacterController

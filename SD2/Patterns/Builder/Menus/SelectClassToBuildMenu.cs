@@ -56,7 +56,7 @@ namespace SD2.Patterns.Builder.Menus
                     State.Character = builder.GetResult();
                     break;
                 default:
-                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

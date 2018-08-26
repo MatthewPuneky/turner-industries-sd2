@@ -9,7 +9,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Axes
         public override string Name => "Rusty Axe";
         public override int AttackPower => EnhancingAttribute.Value * BaseDamageValue * DamageMultiplyer;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("It's so dull only brute force can make use of this.");
         }

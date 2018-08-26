@@ -29,6 +29,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Potions
         }
 
         public abstract void UsePotion();
-        public abstract void PrintDescription();
+        public abstract void Describe();
     }
 }

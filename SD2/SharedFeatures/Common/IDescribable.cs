@@ -8,6 +8,6 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common
 {
     public interface IDescribable
     {
-        void PrintDescription();
+        void Describe();
     }
 }

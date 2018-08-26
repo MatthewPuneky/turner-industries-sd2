@@ -2,7 +2,6 @@
 using SD2.Patterns.Adapter.LegacyBankAdapter.Menus;
 using SD2.Patterns.Builder.Menus;
 using SD2.Patterns.ChainOfResponsibility.Menus;
-using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Menus;
 using SD2.Patterns.Singleton.Menus;
 

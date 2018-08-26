@@ -47,7 +47,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
                     State.ChosenCharacter = CharacterFactory.GeneratePlayerCharacter(PlayerCharacterClass.Mage);
                     break;
                 default:
-                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

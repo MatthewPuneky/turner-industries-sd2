@@ -7,7 +7,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Wand
         public override string Name => "Warped Wand";
         public override int AttackPower => 1;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("The wand is so warped it's incredible it can even fire straight.");
         }

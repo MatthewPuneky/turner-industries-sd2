@@ -12,14 +12,14 @@ namespace SD2.SharedFeatures.Informationals
         
         protected abstract IEnumerable<string> LoadLinesToDisplay();
 
-        private string HowToExitPagedMenu()
+        private static string HowToExitPagedMenu()
         {
             return "[E]xit";
         }
 
-        private string HowToContinune()
+        private static string HowToContinune()
         {
-            return "[N]ext";
+            return "[N]ext or [Enter]";
         }
 
         protected virtual string InformUserOfEndOfList()
@@ -29,8 +29,17 @@ namespace SD2.SharedFeatures.Informationals
 
         public void Display()
         {
+            var firstLoop = true;
+
             foreach(var line in LoadLinesToDisplay())
             {
+                if (firstLoop)
+                {
+                    Printer.WriteLine();
+                    firstLoop = false;
+                    LinesDisplayed++;
+                }
+
                 Printer.WriteLine(line);
 
                 if(DisplayInformationPaged)
@@ -93,7 +102,7 @@ namespace SD2.SharedFeatures.Informationals
     {
         protected T State;
 
-        public Informational(T state)
+        protected Informational(T state)
         {
             State = state;
         }

@@ -21,7 +21,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
             }
         }
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             switch (Weilder.UnarmedAttackStyle)
             {

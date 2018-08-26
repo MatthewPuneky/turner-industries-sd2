@@ -8,7 +8,7 @@ namespace SD2.SharedFeatures.Common
 {
     public class Constants
     {
-        public static class MenuConstants
+        public static class Menu
         {
             public const string UnderConstruction = "(under construction)";
             public const string UnderConstructionToUserResponse = "Under construction\n";

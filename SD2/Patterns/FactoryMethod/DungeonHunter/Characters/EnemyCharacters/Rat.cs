@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
         public override string CharacterName { get; set; } = "Large Rat";
         public override int TotalAttributePoints { get; set; } = 3;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("A frothing rat, larger than normal.");
         }

@@ -9,7 +9,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors
         public override string ArmorName => "Unarmed";
         public override int ArmorRaiting => 0;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("Unarmored, like the day you were born.");
         }

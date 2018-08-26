@@ -7,7 +7,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 {
     public class NamePlayerCharacterMenu : Menu<CharacterCreateState>
     {
-        public NamePlayerCharacterMenu()
+        public NamePlayerCharacterMenu() 
             : base(CharacterCreateState.Instance)
         {
         }

@@ -6,7 +6,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
     {
         public override PlayerCharacterClass ClassType => PlayerCharacterClass.Mage;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("An old frail body with incredible magical energy.");
         }

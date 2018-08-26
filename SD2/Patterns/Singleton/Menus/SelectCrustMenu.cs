@@ -40,7 +40,7 @@ namespace SD2.Patterns.Singleton.Menus
                 case CrustTypes.Thin: State.CurrentOrder.Crust = "Thin"; break;
                 case CrustTypes.StuffedCrust: State.CurrentOrder.Crust = "Stuffed Crust"; break;
                 default:
-                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

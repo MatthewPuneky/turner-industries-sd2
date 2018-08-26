@@ -7,7 +7,7 @@ namespace SD2
     {
         public static void Main(string[] args)
         {
-            PrintHeader();
+            //PrintHeader();
 
             MenuFactory.ApplicationMainMenu().Display();
         }

@@ -1,11 +1,11 @@
-﻿using SD2.SharedFeatures.Printers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Game;
+using SD2.SharedFeatures.Common;
 using SD2.SharedFeatures.Menus;
-using static SD2.SharedFeatures.Common.Constants;
+using SD2.SharedFeatures.Printers;
 
-namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
+namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 {
     public class PlayerMenu : Menu<DungeonHunterState>
     {
@@ -36,12 +36,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Common.Menus
 
             switch (option)
             {
-                case PlayerMenuOptions.EquipWeapon: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.EquipArmor: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.UsePotion: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.DescribeSelf: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipWeapon: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipArmor: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.UsePotion: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.DescribeSelf: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
                 default:
-                    Printer.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

@@ -18,12 +18,12 @@ namespace SD2.Patterns
 
         protected override void PrintMenuBody()
         {
-            const string underConstruction = Constants.MenuConstants.UnderConstruction;
+            const string underConstruction = Constants.Menu.UnderConstruction;
 
             Printer.WriteLine($" {(int)PatternsMenuOptions.FactoryMethod}: Factory Method");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite {underConstruction}");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator {underConstruction}");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Command}: Command {underConstruction}");
             Printer.WriteLine($" {(int)PatternsMenuOptions.ChainOfResponsiblity}: Chain of Responsibility");
@@ -37,7 +37,7 @@ namespace SD2.Patterns
 
         protected override void MenuOptions(string userInput)
         {
-            const string underConstruction = Constants.MenuConstants.UnderConstructionToUserResponse;
+            const string underConstruction = Constants.Menu.UnderConstructionToUserResponse;
             var option = (PatternsMenuOptions)int.Parse(userInput);
 
             switch (option)
@@ -45,7 +45,7 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.FactoryMethod: FactoryMethod.DungeonHunter.Game.GameLoop.Start(); break;
                 case PatternsMenuOptions.Singleton: Singleton.State.Run.Operation(); break;
                 case PatternsMenuOptions.Adapter: Adapter.LegacyBankAdapter.Run.Operation(); break;
-                case PatternsMenuOptions.Composite: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Composite: Composite.Tree.Run.Operation(); break;
                 case PatternsMenuOptions.Decorator: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Command: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.ChainOfResponsiblity: ChainOfResponsibility.Run.Operation(); break;
@@ -56,7 +56,7 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.Visitor: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.Builder: Builder.Run.Operation(); break;
                 default:
-                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

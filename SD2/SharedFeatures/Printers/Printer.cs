@@ -9,19 +9,30 @@ namespace SD2.SharedFeatures.Printers
     {
         public static void WriteLine(string line)
         {
+            foreach(var @char in line)
+            {
+                if(@char != ' ')
+                {
+                    Wait();
+                }
+                Console.Write(@char);
+            }
             Wait();
-            Console.WriteLine(line);
+            Console.WriteLine();
         }
 
         public static void WriteLine()
         {
-            Wait();
             Console.WriteLine();
         }
 
         public static void Write(string partialLine)
         {
-            Console.Write(partialLine);
+            foreach (var @char in partialLine)
+            {
+                Wait();
+                Console.Write(@char);
+            }
         }
 
         public static string ReadLine()
@@ -45,7 +56,7 @@ namespace SD2.SharedFeatures.Printers
 
         private static void Wait()
         {
-            Thread.Sleep(90);
+            Thread.Sleep(2);
         }
     }
 }

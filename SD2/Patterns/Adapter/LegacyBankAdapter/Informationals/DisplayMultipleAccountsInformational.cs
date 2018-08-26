@@ -13,11 +13,6 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Informationals
 
         protected override IEnumerable<string> LoadLinesToDisplay()
         {
-            if(State.AccountsToPrint.Count > 0)
-            {
-                yield return "";
-            }
-
             foreach (var account in State.AccountsToPrint)
             {
                 var decimalLocation = account.GetBalance.decimalLocation;

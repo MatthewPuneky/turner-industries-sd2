@@ -18,7 +18,7 @@ namespace SD2
 
         protected override void PrintMenuBody()
         {
-            const string underConstruction = Constants.MenuConstants.UnderConstruction;
+            const string underConstruction = Constants.Menu.UnderConstruction;
 
             Printer.WriteLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
             Printer.WriteLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
@@ -30,7 +30,7 @@ namespace SD2
 
         protected override void MenuOptions(string userInput)
         {
-            const string underConstruction = Constants.MenuConstants.UnderConstructionToUserResponse;
+            const string underConstruction = Constants.Menu.UnderConstructionToUserResponse;
             var option = (ApplicationMainMenuOptions)int.Parse(userInput);
 
             switch (option)
@@ -42,7 +42,7 @@ namespace SD2
                 case ApplicationMainMenuOptions.TSql: Printer.WriteLine(underConstruction); break;
                 case ApplicationMainMenuOptions.DevOps: Printer.WriteLine(underConstruction); break;
                 default:
-                    Printer.WriteLine(Constants.MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

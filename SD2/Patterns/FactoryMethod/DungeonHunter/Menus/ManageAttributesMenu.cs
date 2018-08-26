@@ -4,6 +4,7 @@ using SD2.Patterns.FactoryMethod.DungeonHunter.States;
 using SD2.SharedFeatures.Menus;
 using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
+using SD2.SharedFeatures.Common;
 using static SD2.SharedFeatures.Common.Constants;
 
 namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
@@ -47,7 +48,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
                 case AttributeType.Dexterity: MenuFactory.ManageStrengthMenu().Display(); break;
                 case AttributeType.Intelligence: MenuFactory.ManageStrengthMenu().Display(); break;
                 default:
-                    Printer.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

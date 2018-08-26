@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
         public override string CharacterName { get; set; } = "Pesky Goblin";
         public override int TotalAttributePoints { get; set; } = 5;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("A warted Goblin, small yet nimble.");
         }

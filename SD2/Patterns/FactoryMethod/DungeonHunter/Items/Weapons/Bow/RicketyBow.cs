@@ -7,7 +7,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Bow
         public override string Name => "Rickety Bow";
         public override int AttackPower => 1;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("Cracked from top to bottom, but it can still shoot");
         }

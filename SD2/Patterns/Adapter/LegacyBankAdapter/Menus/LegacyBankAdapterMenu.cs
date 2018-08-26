@@ -52,9 +52,9 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
                 case LegacyBankAdapterMenuOptions.BankOfBar:
                     HandleBankOfBarAccounts();
                     break;
-                case LegacyBankAdapterMenuOptions.CreateNew: Printer.WriteLine(MenuConstants.UnderConstructionToUserResponse); break;
+                case LegacyBankAdapterMenuOptions.CreateNew: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
                 default:
-                    Printer.WriteLine(MenuConstants.FailedToHandle(option.ToString()));
+                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
 

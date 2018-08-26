@@ -29,7 +29,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons
         }
 
         public abstract void PrintWeaponAttack();
-        public abstract void PrintDescription();
+        public abstract void Describe();
     }
 
     public enum WeaponType

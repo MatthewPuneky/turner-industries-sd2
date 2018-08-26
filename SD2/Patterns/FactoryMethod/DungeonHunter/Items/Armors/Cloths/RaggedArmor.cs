@@ -8,7 +8,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Cloths
         public override int ArmorRaiting => 1;
         public override ArmorWeight ArmorWeight => ArmorWeight.None;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("Holes all over, but at least it keeps the cold out.");
         }

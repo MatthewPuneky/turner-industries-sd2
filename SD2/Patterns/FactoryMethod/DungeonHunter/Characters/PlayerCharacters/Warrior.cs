@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
     {
         public override PlayerCharacterClass ClassType => PlayerCharacterClass.Warrior;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("A hearty being, able to weild mighty weapons.");
         }

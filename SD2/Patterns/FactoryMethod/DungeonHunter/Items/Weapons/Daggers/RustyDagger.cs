@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Daggers
         public override int AttackPower => EnhancingAttribute.Value * BaseDamageValue * DamageMultiplyer;
         public override int Range => 1;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("It might as well be a kitchen knife.");
         }

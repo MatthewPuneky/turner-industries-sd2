@@ -6,7 +6,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
     {
         public override PlayerCharacterClass ClassType => PlayerCharacterClass.Rogue;
 
-        public override void PrintDescription()
+        public override void Describe()
         {
             Printer.WriteLine("A mysterious fighter, willing to use any tactics to survive.");
         }

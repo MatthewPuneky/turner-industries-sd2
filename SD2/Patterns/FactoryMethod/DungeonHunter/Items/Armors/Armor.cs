@@ -29,7 +29,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors
             return incomingDamage - ArmorRaiting;
         }
 
-        public abstract void PrintDescription();
+        public abstract void Describe();
     }
 
     public enum ArmorType
