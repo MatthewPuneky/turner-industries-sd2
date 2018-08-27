@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Common.Helpers;
 using SD2.SharedFeatures.Menus;

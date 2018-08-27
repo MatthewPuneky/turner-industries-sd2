@@ -64,8 +64,9 @@ namespace SD2.SharedFeatures.Informationals
 
         private void Salutation()
         {
-            Printer.Write($"{InformUserOfEndOfList()} - [ENTER] to exit: ");
-            Printer.ReadLine();
+            Printer.Write($"{InformUserOfEndOfList()} - [Any Key] to exit: ");
+            Printer.ReadKeyChar();
+            Printer.WriteLine();
 
             Printer.ClearPreviousLine();
         }

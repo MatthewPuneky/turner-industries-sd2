@@ -24,7 +24,7 @@ namespace SD2.Patterns
             Printer.WriteLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator {underConstruction}");
+            Printer.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Command}: Command {underConstruction}");
             Printer.WriteLine($" {(int)PatternsMenuOptions.ChainOfResponsiblity}: Chain of Responsibility");
             Printer.WriteLine($" {(int)PatternsMenuOptions.Mediator}: Mediator {underConstruction}");
@@ -46,7 +46,7 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.Singleton: Singleton.State.Run.Operation(); break;
                 case PatternsMenuOptions.Adapter: Adapter.LegacyBankAdapter.Run.Operation(); break;
                 case PatternsMenuOptions.Composite: Composite.Tree.Run.Operation(); break;
-                case PatternsMenuOptions.Decorator: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Decorator: Decorator.Validation.Run.Operation(); break;
                 case PatternsMenuOptions.Command: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.ChainOfResponsiblity: ChainOfResponsibility.Run.Operation(); break;
                 case PatternsMenuOptions.Mediator: Printer.WriteLine(underConstruction); break;

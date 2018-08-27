@@ -35,6 +35,11 @@ namespace SD2.SharedFeatures.Printers
             }
         }
 
+        public static char ReadKeyChar()
+        {
+            return Console.ReadKey().KeyChar;
+        }
+
         public static string ReadLine()
         {
             return Console.ReadLine();
