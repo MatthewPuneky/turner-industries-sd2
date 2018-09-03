@@ -113,6 +113,14 @@
     <Compile Include="Patterns\ChainOfResponsibility\UserFinder.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\Menus\FindUserMenu.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\StorageState.cs" />
+    <Compile Include="Patterns\Command\State\UndoableCommandState.cs" />
+    <Compile Include="Patterns\Command\UndoOptions\UndoOperationsState.cs" />
+    <Compile Include="Patterns\Command\UndoOptions\UndoableCommand.cs" />
+    <Compile Include="Patterns\Command\UndoOptions\CommandManager.cs" />
+    <Compile Include="Patterns\Command\UndoTakeoffOperations\AddTakeoff.cs" />
+    <Compile Include="Patterns\Command\UndoTakeoffOperations\DeleteTakeoff.cs" />
+    <Compile Include="Patterns\Command\UndoTakeoffOperations\EditTakeoff.cs" />
+    <Compile Include="Patterns\Command\UndoTakeoffOperations\Takeoff.cs" />
     <Compile Include="Patterns\Composite\Tree\Branch.cs" />
     <Compile Include="Patterns\Composite\Tree\Informationals\BranchInformational.cs" />
     <Compile Include="Patterns\Composite\Tree\Informationals\CompositeTreeInformationalFactory.cs" />
@@ -176,6 +184,8 @@
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\Menus\SelectClassMenu.cs" />
     <Compile Include="Patterns\FactoryMethod\DungeonHunter\States\CharacterCreateState.cs" />
     <Compile Include="SharedFeatures\Common\Constants.cs" />
+    <Compile Include="SharedFeatures\Helpers\IntHelpers.cs" />
+    <Compile Include="SharedFeatures\Helpers\ObjectHelpers.cs" />
     <Compile Include="SharedFeatures\Informationals\Informational.cs" />
     <Compile Include="SharedFeatures\Menus\Menu.cs" />
     <Compile Include="SharedFeatures\Menus\MenuFactory.cs" />
