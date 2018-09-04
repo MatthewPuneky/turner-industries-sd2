@@ -138,6 +138,12 @@
     <Compile Include="Patterns\Decorator\ItemPriceDecorators\Items\TaxDecorators\SalesTax.cs" />
     <Compile Include="Patterns\Decorator\ItemPriceDecorators\Items\TaxDecorators\TariffTax.cs" />
     <Compile Include="Patterns\Decorator\ItemPriceDecorators\Run.cs" />
+    <Compile Include="Patterns\Decorator\UserInputValidationDecorators\Run.cs" />
+    <Compile Include="Patterns\Decorator\UserInputValidationDecorators\UserInput.cs" />
+    <Compile Include="Patterns\Decorator\UserInputValidationDecorators\UserInputValidators\StringValidators\UserInputContainsValueValidator.cs" />
+    <Compile Include="Patterns\Decorator\UserInputValidationDecorators\UserInputValidators\UserInputErrorResponse.cs" />
+    <Compile Include="Patterns\Decorator\UserInputValidationDecorators\UserInputValidators\UserInputValidator.cs" />
+    <Compile Include="Patterns\Decorator\UserInputValidationDecorators\UserInputs\BasicUserInput.cs" />
     <Compile Include="Patterns\Decorator\Validation\Run.cs" />
     <Compile Include="Patterns\Decorator\Validation\ValidatorDecorators\IntegerValidators\IntegerGreaterThan.cs" />
     <Compile Include="Patterns\Decorator\Validation\ValidatorDecorators\IntegerValidators\IntegerGreatThanOrEqualTo.cs" />
@@ -229,6 +235,7 @@
     <Content Include="qdc.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Patterns\Decorator\EncryptionDecorators\" />
     <Folder Include="SharedFeatures\State\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

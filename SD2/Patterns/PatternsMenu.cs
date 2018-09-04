@@ -46,7 +46,7 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.Singleton: Singleton.State.Run.Operation(); break;
                 case PatternsMenuOptions.Adapter: Adapter.LegacyBankAdapter.Run.Operation(); break;
                 case PatternsMenuOptions.Composite: Composite.Tree.Run.Operation(); break;
-                case PatternsMenuOptions.Decorator: Decorator.ItemPriceDecorators.Run.Operation(); break;
+                case PatternsMenuOptions.Decorator: Decorator.UserInputValidationDecorators.Run.Operation(); break;
                 case PatternsMenuOptions.Command: Printer.WriteLine(underConstruction); break;
                 case PatternsMenuOptions.ChainOfResponsiblity: ChainOfResponsibility.Run.Operation(); break;
                 case PatternsMenuOptions.Mediator: Printer.WriteLine(underConstruction); break;
