@@ -12,7 +12,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
 
         public override void Describe()
         {
-            Printer.WriteLine("A hearty being, able to weild mighty weapons.");
+            Printer.PrintLine("A hearty being, able to weild mighty weapons.");
         }
     }
 }

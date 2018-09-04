@@ -21,7 +21,7 @@ namespace SD2.Patterns.Singleton.State
         {
             var state = PizzaOrderState.Instance;
 
-            Printer.WriteLine($"Crust: {state.CurrentOrder.Crust}");
+            Printer.PrintLine($"Crust: {state.CurrentOrder.Crust}");
 
             Printer.ReadLine();
         }

@@ -16,12 +16,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("SET YOUR CHARACTER NAME");
+            Printer.PrintLine("SET YOUR CHARACTER NAME");
         }
 
         protected override void PrintUserInputPrompt()
         {
-            Printer.Write($"Character Name: ");
+            Printer.Print($"Character Name: ");
         }
 
         protected override void PrintMenuBody()

@@ -22,7 +22,7 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("FIND USER MENU");
+            Printer.PrintLine("FIND USER MENU");
         }
 
         protected override void PrintMenuBody()
@@ -32,7 +32,7 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
 
             foreach (var option in options)
             {
-                Printer.WriteLine($"{option.Id.ToString().PadLeft(maxOptionWidth)}: {option.Username}");
+                Printer.PrintLine($"{option.Id.ToString().PadLeft(maxOptionWidth)}: {option.Username}");
             }
         }
 

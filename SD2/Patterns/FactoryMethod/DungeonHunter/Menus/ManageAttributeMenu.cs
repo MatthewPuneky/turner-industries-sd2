@@ -24,17 +24,17 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine("Current Stats");
-            Printer.Write($"Str: {State.ChosenCharacter.Strength.Value} - ");
-            Printer.Write($"Int: {State.ChosenCharacter.Dexterity.Value} - ");
-            Printer.Write($"Dex: {State.ChosenCharacter.Intelligence.Value}");
-            Printer.WriteLine($"Remaining Points : {State.ChosenCharacter.RemainingStatsToDistribute}");
+            Printer.PrintLine("Current Stats");
+            Printer.Print($"Str: {State.ChosenCharacter.Strength.Value} - ");
+            Printer.Print($"Int: {State.ChosenCharacter.Dexterity.Value} - ");
+            Printer.Print($"Dex: {State.ChosenCharacter.Intelligence.Value}");
+            Printer.PrintLine($"Remaining Points : {State.ChosenCharacter.RemainingStatsToDistribute}");
         }
 
         protected override void PrintUserInputPrompt()
         {
             var remainingPoints = State.ChosenCharacter.RemainingStatsToDistribute;
-            Printer.Write($"Select a value (0-{remainingPoints}): ");
+            Printer.Print($"Select a value (0-{remainingPoints}): ");
         }
     }
 
@@ -42,7 +42,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
     {
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("ENTER STRENGTH");
+            Printer.PrintLine("ENTER STRENGTH");
         }
 
         protected override void MenuOptions(string userInput)
@@ -57,7 +57,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
     {
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("ENTER DEXTERITY");
+            Printer.PrintLine("ENTER DEXTERITY");
         }
 
         protected override void MenuOptions(string userInput)
@@ -72,7 +72,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
     {
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("ENTER INTELLIGENCE");
+            Printer.PrintLine("ENTER INTELLIGENCE");
         }
 
         protected override void MenuOptions(string userInput)

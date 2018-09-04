@@ -21,21 +21,21 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("ASSIGN YOUR ATTRIBUTES");
+            Printer.PrintLine("ASSIGN YOUR ATTRIBUTES");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine("Current Stats");
-            Printer.Write($"Str: {State.ChosenCharacter.Strength.Value} - ");
-            Printer.Write($"Int: {State.ChosenCharacter.Dexterity.Value} - ");
-            Printer.Write($"Dex: {State.ChosenCharacter.Intelligence.Value}");
-            Printer.WriteLine();
-            Printer.WriteLine($"Remaining Points : {State.ChosenCharacter.RemainingStatsToDistribute}");
-            Printer.WriteLine($"SELECT ATTRIBUTE TO IMPROVE");
-            Printer.WriteLine($"{(int)AttributeType.Strength}: {AttributeType.Strength}");
-            Printer.WriteLine($"{(int)AttributeType.Dexterity}: {AttributeType.Dexterity}");
-            Printer.WriteLine($"{(int)AttributeType.Intelligence}: {AttributeType.Intelligence}");
+            Printer.PrintLine("Current Stats");
+            Printer.Print($"Str: {State.ChosenCharacter.Strength.Value} - ");
+            Printer.Print($"Int: {State.ChosenCharacter.Dexterity.Value} - ");
+            Printer.Print($"Dex: {State.ChosenCharacter.Intelligence.Value}");
+            Printer.PrintLine();
+            Printer.PrintLine($"Remaining Points : {State.ChosenCharacter.RemainingStatsToDistribute}");
+            Printer.PrintLine($"SELECT ATTRIBUTE TO IMPROVE");
+            Printer.PrintLine($"{(int)AttributeType.Strength}: {AttributeType.Strength}");
+            Printer.PrintLine($"{(int)AttributeType.Dexterity}: {AttributeType.Dexterity}");
+            Printer.PrintLine($"{(int)AttributeType.Intelligence}: {AttributeType.Intelligence}");
         }
 
         protected override void MenuOptions(string userInput)
@@ -48,7 +48,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
                 case AttributeType.Dexterity: MenuFactory.ManageStrengthMenu().Display(); break;
                 case AttributeType.Intelligence: MenuFactory.ManageStrengthMenu().Display(); break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

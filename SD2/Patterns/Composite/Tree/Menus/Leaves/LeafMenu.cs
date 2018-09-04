@@ -17,12 +17,12 @@ namespace SD2.Patterns.Composite.Tree.Menus.Leaves
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("Leaf MENU");
+            Printer.PrintLine("Leaf MENU");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)LeafMenuOptions.Describe}: Describe");
+            Printer.PrintLine($"{(int)LeafMenuOptions.Describe}: Describe");
         }
 
         protected override void MenuOptions(string userInput)
@@ -33,7 +33,7 @@ namespace SD2.Patterns.Composite.Tree.Menus.Leaves
             {
                 case BranchMenus.BranchMenuOptions.Describe: State.Describe(); break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

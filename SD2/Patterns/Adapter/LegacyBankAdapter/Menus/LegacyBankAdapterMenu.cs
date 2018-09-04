@@ -23,15 +23,15 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("LEGACY BANK ADAPTER");
+            Printer.PrintLine("LEGACY BANK ADAPTER");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.All}: Display All Accounts");
-            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.BankOfFoo}: Display CompanyA Accounts");
-            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.BankOfBar}: Display CompanyB Accounts");
-            Printer.WriteLine($"{(int)LegacyBankAdapterMenuOptions.CreateNew}: Create New Account");
+            Printer.PrintLine($"{(int)LegacyBankAdapterMenuOptions.All}: Display All Accounts");
+            Printer.PrintLine($"{(int)LegacyBankAdapterMenuOptions.BankOfFoo}: Display CompanyA Accounts");
+            Printer.PrintLine($"{(int)LegacyBankAdapterMenuOptions.BankOfBar}: Display CompanyB Accounts");
+            Printer.PrintLine($"{(int)LegacyBankAdapterMenuOptions.CreateNew}: Create New Account");
         }
 
         protected override void MenuOptions(string userInput)
@@ -52,9 +52,9 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
                 case LegacyBankAdapterMenuOptions.BankOfBar:
                     HandleBankOfBarAccounts();
                     break;
-                case LegacyBankAdapterMenuOptions.CreateNew: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case LegacyBankAdapterMenuOptions.CreateNew: Printer.PrintLine(Constants.Menu.UnderConstructionToUserResponse); break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
 

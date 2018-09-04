@@ -16,12 +16,12 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
                 stringBalance = stringBalance.Insert(stringBalance.Length - decimalLocation, ".");
             }
 
-            Printer.WriteLine();
-            Printer.WriteLine("ACCOUNT INFORMATION");
-            Printer.WriteLine($"Owner Name: {account.GetHonorific} {account.GetFirstName} {account.GetMiddleName} {account.GetLastName}".Replace("  ", " "));
-            Printer.WriteLine($"Account Number: {account.AccountNumber}");
-            Printer.WriteLine($"Balance: {stringBalance}");
-            Printer.WriteLine();
+            Printer.PrintLine();
+            Printer.PrintLine("ACCOUNT INFORMATION");
+            Printer.PrintLine($"Owner Name: {account.GetHonorific} {account.GetFirstName} {account.GetMiddleName} {account.GetLastName}".Replace("  ", " "));
+            Printer.PrintLine($"Account Number: {account.AccountNumber}");
+            Printer.PrintLine($"Balance: {stringBalance}");
+            Printer.PrintLine();
         }
     }
 }

@@ -9,12 +9,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Bow
 
         public override void Describe()
         {
-            Printer.WriteLine("Cracked from top to bottom, but it can still shoot");
+            Printer.PrintLine("Cracked from top to bottom, but it can still shoot");
         }
 
         public override void PrintWeaponAttack()
         {
-            Printer.WriteLine("The bow creeks as the arrow hurls towards its target!");
+            Printer.PrintLine("The bow creeks as the arrow hurls towards its target!");
         }
     }
 }

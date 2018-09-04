@@ -18,7 +18,7 @@ namespace SD2.Patterns.Decorator.Validation
 
             foreach (var error in validator.ErrorMessages)
             {
-                Printer.WriteLine(error);
+                Printer.PrintLine(error);
             }
 
         }

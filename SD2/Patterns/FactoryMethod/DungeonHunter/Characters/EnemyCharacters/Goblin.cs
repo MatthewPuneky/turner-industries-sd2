@@ -12,7 +12,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 
         public override void Describe()
         {
-            Printer.WriteLine("A warted Goblin, small yet nimble.");
+            Printer.PrintLine("A warted Goblin, small yet nimble.");
         }
     }
 }

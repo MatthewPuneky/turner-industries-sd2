@@ -11,20 +11,20 @@ namespace SD2.Patterns.ChainOfResponsibility
     {
         public void Find(int userId)
         {
-            Printer.WriteLine();
+            Printer.PrintLine();
 
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             var response = StorageState.Instance.TopOfChain.HandleRequest(userId);
             stopwatch.Stop();
 
-            Printer.WriteLine(response != null
+            Printer.PrintLine(response != null
                 ? $"User {response.User.Username} was found."
                 : $"User was not found.");
 
-            Printer.WriteLine($"Elapsed time is {stopwatch.Elapsed}");
+            Printer.PrintLine($"Elapsed time is {stopwatch.Elapsed}");
 
-            Printer.WriteLine();
+            Printer.PrintLine();
         }
     }
 }

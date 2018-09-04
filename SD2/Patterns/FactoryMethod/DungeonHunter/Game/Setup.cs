@@ -9,8 +9,8 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Game
     {
         public static PlayerCharacter CreateYourCharacter()
         {
-            Printer.WriteLine("CHARACTER CREATION");
-            Printer.WriteLine();
+            Printer.PrintLine("CHARACTER CREATION");
+            Printer.PrintLine();
 
             MenuFactory.SelectClassMenu().Display();
             MenuFactory.ManageAttributesMenu().Display();

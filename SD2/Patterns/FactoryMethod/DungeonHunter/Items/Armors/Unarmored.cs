@@ -11,7 +11,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors
 
         public override void Describe()
         {
-            Printer.WriteLine("Unarmored, like the day you were born.");
+            Printer.PrintLine("Unarmored, like the day you were born.");
         }
     }
 }

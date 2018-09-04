@@ -13,19 +13,19 @@ namespace SD2
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("APPLICATION MAIN MENU");
+            Printer.PrintLine("APPLICATION MAIN MENU");
         }
 
         protected override void PrintMenuBody()
         {
             const string underConstruction = Constants.Menu.UnderConstruction;
 
-            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
-            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
-            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns ");
-            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.SolidPrincipals}: Solid Principals {underConstruction}");
-            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
-            Printer.WriteLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns ");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.SolidPrincipals}: Solid Principals {underConstruction}");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
         }
 
         protected override void MenuOptions(string userInput)
@@ -35,14 +35,14 @@ namespace SD2
 
             switch (option)
             {
-                case ApplicationMainMenuOptions.General: Printer.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.Backend: Printer.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.General: Printer.PrintLine(underConstruction); break;
+                case ApplicationMainMenuOptions.Backend: Printer.PrintLine(underConstruction); break;
                 case ApplicationMainMenuOptions.Patterns: MenuFactory.PatternsMenu().Display(); break;
-                case ApplicationMainMenuOptions.SolidPrincipals: Printer.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.TSql: Printer.WriteLine(underConstruction); break;
-                case ApplicationMainMenuOptions.DevOps: Printer.WriteLine(underConstruction); break;
+                case ApplicationMainMenuOptions.SolidPrincipals: Printer.PrintLine(underConstruction); break;
+                case ApplicationMainMenuOptions.TSql: Printer.PrintLine(underConstruction); break;
+                case ApplicationMainMenuOptions.DevOps: Printer.PrintLine(underConstruction); break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

@@ -19,15 +19,15 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("PLAYER MENU");
+            Printer.PrintLine("PLAYER MENU");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)PlayerMenuOptions.EquipWeapon}: Equip Weapon");
-            Printer.WriteLine($"{(int)PlayerMenuOptions.EquipArmor}: Equip Armor");
-            Printer.WriteLine($"{(int)PlayerMenuOptions.UsePotion}: Use Potion");
-            Printer.WriteLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
+            Printer.PrintLine($"{(int)PlayerMenuOptions.EquipWeapon}: Equip Weapon");
+            Printer.PrintLine($"{(int)PlayerMenuOptions.EquipArmor}: Equip Armor");
+            Printer.PrintLine($"{(int)PlayerMenuOptions.UsePotion}: Use Potion");
+            Printer.PrintLine($"{(int)PlayerMenuOptions.DescribeSelf}: Describe Self");
         }
 
         protected override void MenuOptions(string userInput)
@@ -36,12 +36,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
             switch (option)
             {
-                case PlayerMenuOptions.EquipWeapon: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.EquipArmor: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.UsePotion: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
-                case PlayerMenuOptions.DescribeSelf: Printer.WriteLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipWeapon: Printer.PrintLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.EquipArmor: Printer.PrintLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.UsePotion: Printer.PrintLine(Constants.Menu.UnderConstructionToUserResponse); break;
+                case PlayerMenuOptions.DescribeSelf: Printer.PrintLine(Constants.Menu.UnderConstructionToUserResponse); break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }
