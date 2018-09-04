@@ -15,13 +15,13 @@ namespace SD2.Patterns.Builder
 
         public void Describe()
         { 
-            Printer.WriteLine("YOUR BUILT CHARACTER");
-            Printer.WriteLine($"Armor: {Armor}");
-            Printer.WriteLine($"Weapon: {Weapon}");
-            Printer.WriteLine($"Strength: {Strength}");
-            Printer.WriteLine($"Intelligence: {Intelligence}");
-            Printer.WriteLine($"Dexterity: {Dexterity}");
-            Printer.WriteLine();
+            Printer.PrintLine("YOUR BUILT CHARACTER");
+            Printer.PrintLine($"Armor: {Armor}");
+            Printer.PrintLine($"Weapon: {Weapon}");
+            Printer.PrintLine($"Strength: {Strength}");
+            Printer.PrintLine($"Intelligence: {Intelligence}");
+            Printer.PrintLine($"Dexterity: {Dexterity}");
+            Printer.PrintLine();
         }
     }
 }

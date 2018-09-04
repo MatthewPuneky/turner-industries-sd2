@@ -62,7 +62,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 
         private void PrintCantLootTarget()
         {
-            Printer.WriteLine($"Cannot loot {CharacterName}.");
+            Printer.PrintLine($"Cannot loot {CharacterName}.");
         }
     }
 

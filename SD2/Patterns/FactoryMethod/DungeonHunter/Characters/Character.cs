@@ -110,7 +110,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
             var appliedDamange = Armor.MitigateDamage(incomingDamange);
 
             RemainingHealth -= Armor.MitigateDamage(incomingDamange);
-            Printer.WriteLine($"{CharacterName} took {appliedDamange} damange!");
+            Printer.PrintLine($"{CharacterName} took {appliedDamange} damange!");
 
             DeathCheck();
         }
@@ -129,13 +129,13 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters
             if (RemainingHealth <= 0)
             {
                 IsAlive = false;
-                Printer.WriteLine($"{CharacterName} has died.");
+                Printer.PrintLine($"{CharacterName} has died.");
             }
         }
 
         private void PrintDodge()
         {
-            Printer.WriteLine($"{CharacterName} dodged the attack!");
+            Printer.PrintLine($"{CharacterName} dodged the attack!");
         }
         
         public abstract void Describe();

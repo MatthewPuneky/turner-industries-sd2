@@ -14,14 +14,14 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
 
         public override CachedUser HandleRequest(int request)
         {
-            Printer.WriteLine("Accessing user from LINK storage...");
+            Printer.PrintLine("Accessing user from LINK storage...");
             Thread.Sleep(1000);
 
             var cachedUser = _fakeIndexCache.FirstOrDefault(x => x.User.Id == request);
 
             if (cachedUser != null)
             {
-                Printer.WriteLine($"User {cachedUser.User.Id} found");
+                Printer.PrintLine($"User {cachedUser.User.Id} found");
                 cachedUser.LastVisitDateTime = DateTime.UtcNow;
                 return cachedUser;
             }
@@ -46,12 +46,12 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
             if (_fakeIndexCache.Count + 1 > fakeUserLimit)
             {
                 var userToDemote = RemoveOldestCachedUserFromList();
-                Printer.WriteLine($"Demoting user id={userToDemote.User.Id} from LINK to lower cache");
+                Printer.PrintLine($"Demoting user id={userToDemote.User.Id} from LINK to lower cache");
                 Successor.HandleResponse(userToDemote);
             }
 
             response.LastVisitDateTime = DateTime.UtcNow;
-            Printer.WriteLine($"Adding user id={response.User.Id} to LINK cache.");
+            Printer.PrintLine($"Adding user id={response.User.Id} to LINK cache.");
             _fakeIndexCache.Add(response);
         }
 

@@ -11,12 +11,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Axes
 
         public override void Describe()
         {
-            Printer.WriteLine("It's so dull only brute force can make use of this.");
+            Printer.PrintLine("It's so dull only brute force can make use of this.");
         }
 
         public override void PrintWeaponAttack()
         {
-            Printer.WriteLine("The Rusty Axe lumbers through the air!");
+            Printer.PrintLine("The Rusty Axe lumbers through the air!");
         }
     }
 }

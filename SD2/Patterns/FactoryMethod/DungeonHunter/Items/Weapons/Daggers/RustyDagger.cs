@@ -12,12 +12,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Daggers
 
         public override void Describe()
         {
-            Printer.WriteLine("It might as well be a kitchen knife.");
+            Printer.PrintLine("It might as well be a kitchen knife.");
         }
 
         public override void PrintWeaponAttack()
         {
-            Printer.WriteLine("The Rusty Dagger flings towrads its opponent!");
+            Printer.PrintLine("The Rusty Dagger flings towrads its opponent!");
         }
     }
 }

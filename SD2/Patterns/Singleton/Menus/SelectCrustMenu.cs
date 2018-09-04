@@ -18,14 +18,14 @@ namespace SD2.Patterns.Singleton.Menus
         
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("SELECT CRUST");
+            Printer.PrintLine("SELECT CRUST");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)CrustTypes.PanTossed}: Pan Tossed");
-            Printer.WriteLine($"{(int)CrustTypes.Thin}: Thin");
-            Printer.WriteLine($"{(int)CrustTypes.StuffedCrust}: Stuffed Crust");
+            Printer.PrintLine($"{(int)CrustTypes.PanTossed}: Pan Tossed");
+            Printer.PrintLine($"{(int)CrustTypes.Thin}: Thin");
+            Printer.PrintLine($"{(int)CrustTypes.StuffedCrust}: Stuffed Crust");
         }
 
         protected override void MenuOptions(string userInput)
@@ -40,7 +40,7 @@ namespace SD2.Patterns.Singleton.Menus
                 case CrustTypes.Thin: State.CurrentOrder.Crust = "Thin"; break;
                 case CrustTypes.StuffedCrust: State.CurrentOrder.Crust = "Stuffed Crust"; break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

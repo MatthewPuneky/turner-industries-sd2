@@ -5,12 +5,12 @@ using static SD2.SharedFeatures.Helpers.ObjectHelpers;
 
 namespace SD2.Patterns.Command.UndoTakeoffOperations
 {
-    public class EditTakeoff : UndoableCommand<Takeoff>
+    public class EditTakeoffCommand : UndoableCommand<Takeoff>
     {
         private Takeoff _previousState;
         private TakeoffPutDto _editTakeoffState;
 
-        public EditTakeoff(TakeoffPutDto takeoffNewState)
+        public EditTakeoffCommand(TakeoffPutDto takeoffNewState)
         {
             _editTakeoffState = takeoffNewState;
 
@@ -24,7 +24,7 @@ namespace SD2.Patterns.Command.UndoTakeoffOperations
         {
             var state = UndoableCommandState.Instance;
             var takeoff = state.Takeoffs.First(x => x.Id == _previousState.Id);
-            
+
             takeoff.Id = _editTakeoffState.Id;
             takeoff.DrawingNumber = _editTakeoffState.DrawingNumber;
             takeoff.Abbreviation = _editTakeoffState.Abbreviation;
@@ -38,9 +38,10 @@ namespace SD2.Patterns.Command.UndoTakeoffOperations
             var state = UndoableCommandState.Instance;
             var takeoff = state.Takeoffs.First(x => x.Id == _previousState.Id);
 
-            takeoff = _previousState;
+            UndoableCommandState.Instance.Takeoffs.Remove(takeoff);
+            UndoableCommandState.Instance.Takeoffs.Add(_previousState);
 
-            return takeoff;
+            return _previousState;
         }
     }
 }

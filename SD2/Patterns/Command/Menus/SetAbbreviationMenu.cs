@@ -1,14 +1,13 @@
-﻿using SD2.Patterns.FactoryMethod.DungeonHunter.States;
+﻿using System.Collections.Generic;
+using SD2.Patterns.Command.UndoTakeoffOperations;
 using SD2.SharedFeatures.Menus;
 using SD2.SharedFeatures.Printers;
-using System.Collections.Generic;
 
-namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
+namespace SD2.Patterns.Command.Menus
 {
-    public class NamePlayerCharacterMenu : Menu<CharacterCreateState>
+    public class SetAbbreviationMenu : Menu<TakeoffDto>
     {
-        public NamePlayerCharacterMenu() 
-            : base(CharacterCreateState.Instance)
+        public SetAbbreviationMenu(TakeoffDto state) : base(state)
         {
         }
 
@@ -16,12 +15,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void PrintMenuHeader()
         {
-            Printer.PrintLine("SET YOUR CHARACTER NAME");
+            Printer.PrintLine("SET ABBREVIATION NUMBER");
         }
 
         protected override void PrintUserInputPrompt()
         {
-            Printer.Print($"Character Name: ");
+            Printer.Print("Abbreviation: ");
         }
 
         protected override void PrintMenuBody()
@@ -30,7 +29,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Menus
 
         protected override void MenuOptions(string userInput)
         {
-            State.ChosenCharacter.CharacterName = userInput;
+            State.Abbreviation = userInput;
             MenuIsActive = false;
         }
     }

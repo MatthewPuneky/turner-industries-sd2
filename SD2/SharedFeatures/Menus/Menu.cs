@@ -1,4 +1,5 @@
-﻿using SD2.SharedFeatures.Printers;
+﻿using System;
+using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +10,7 @@ namespace SD2.SharedFeatures.Menus
         protected virtual List<string> LegalValues => new List<string>();
         protected virtual List<string> IllegalVales => new List<string>();
         protected virtual bool AllInputLegal => false;
+        protected virtual InputTypes InputType => InputTypes.Any;
 
         protected virtual bool CanExit => false;
 
@@ -22,11 +24,11 @@ namespace SD2.SharedFeatures.Menus
         {
             if(CanExit)
             {
-                Printer.Write($"Select an option (0 to exit): ");
+                Printer.Print($"Select an option (0 to exit): ");
             }
             else
             {
-                Printer.Write("Select an option: ");
+                Printer.Print("Select an option: ");
             }
         }
 
@@ -42,7 +44,7 @@ namespace SD2.SharedFeatures.Menus
                     return input;
                 }
 
-                Printer.WriteLine("INVALID INPUT");
+                Printer.PrintLine("INVALID INPUT");
             }
         }
 
@@ -53,9 +55,9 @@ namespace SD2.SharedFeatures.Menus
             return GetUserInput();
         }
         
-        public void Display()
+        public virtual void Display()
         {
-            Printer.WriteLine();
+            Printer.Clear();
 
             while (MenuIsActive)
             {
@@ -69,7 +71,7 @@ namespace SD2.SharedFeatures.Menus
                 MenuOptions(userInput);
             }
 
-            Printer.WriteLine();
+            Printer.Clear();
         }
 
         private bool IsUserInputValid(string input)
@@ -79,13 +81,28 @@ namespace SD2.SharedFeatures.Menus
             if (AllInputLegal) return true;
             if (CanExit && input == "0") return true;
 
+            var isRightType = CheckUserInputAgainstType(input);
             var isNotLegalInput = LegalValues != null && LegalValues.Any() && !LegalValues.Contains(input);
             var isIllegalInput = IllegalVales != null && IllegalVales.Any() && IllegalVales.Contains(input);
 
+            if (!isRightType) result = false;
             if (isNotLegalInput) result = false;
             if (isIllegalInput) result = false;
 
             return result;
+        }
+
+        private bool CheckUserInputAgainstType(string input)
+        {
+            switch (InputType)
+            {
+                case InputTypes.Any:
+                    return true;
+                case InputTypes.Integer:
+                    var canParse = int.TryParse(input, out var result);
+                    return canParse;
+                default: throw new Exception($"Input Type of {InputType} was not recognized.");
+            }
         }
     }
 
@@ -93,9 +110,30 @@ namespace SD2.SharedFeatures.Menus
     {
         protected T State;
 
-        public Menu(T state)
+        protected Menu(T state)
         {
             State = state;
         }
+    }
+
+    public abstract class Menu<TState, TResponse> : Menu<TState>
+    {
+        protected TResponse Response;
+
+        protected Menu(TState state) : base(state)
+        {
+        }
+
+        public new TResponse Display()
+        {
+            base.Display();
+            return Response;
+        }
+    }
+
+    public enum InputTypes
+    {
+        Any = 1,
+        Integer
     }
 }

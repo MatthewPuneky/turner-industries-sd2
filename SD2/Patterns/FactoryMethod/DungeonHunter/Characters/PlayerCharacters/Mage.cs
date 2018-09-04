@@ -8,7 +8,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
 
         public override void Describe()
         {
-            Printer.WriteLine("An old frail body with incredible magical energy.");
+            Printer.PrintLine("An old frail body with incredible magical energy.");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Plates
 
         public override void Describe()
         {
-            Printer.WriteLine("This armor was definitely used in a war, gashes all over but will offer some protection.");
+            Printer.PrintLine("This armor was definitely used in a war, gashes all over but will offer some protection.");
         }
     }
 }

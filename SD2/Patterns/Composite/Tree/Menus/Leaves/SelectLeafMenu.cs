@@ -28,7 +28,7 @@ namespace SD2.Patterns.Composite.Tree.Menus.Leaves
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("LEAF SELECTOR");
+            Printer.PrintLine("LEAF SELECTOR");
         }
 
         protected override void PrintMenuBody()
@@ -41,7 +41,7 @@ namespace SD2.Patterns.Composite.Tree.Menus.Leaves
                 var indexTo1Base = i + 1;
                 var paddingAmount = maxPadding - indexTo1Base.ToString().Length;
                 var padding = new string(' ', paddingAmount);
-                Printer.WriteLine($"{padding}{indexTo1Base}: {State[i].Name}");
+                Printer.PrintLine($"{padding}{indexTo1Base}: {State[i].Name}");
             }
         }
 

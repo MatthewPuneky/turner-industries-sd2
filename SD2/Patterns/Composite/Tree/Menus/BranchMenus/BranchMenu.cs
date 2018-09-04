@@ -18,14 +18,14 @@ namespace SD2.Patterns.Composite.Tree.Menus.BranchMenus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("BRANCH MENU");
+            Printer.PrintLine("BRANCH MENU");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)BranchMenuOptions.Describe}: Describe");
-            Printer.WriteLine($"{(int)BranchMenuOptions.SelectBranch}: Select a Branch");
-            Printer.WriteLine($"{(int)BranchMenuOptions.SelectLeaf}: Select a Leaf");
+            Printer.PrintLine($"{(int)BranchMenuOptions.Describe}: Describe");
+            Printer.PrintLine($"{(int)BranchMenuOptions.SelectBranch}: Select a Branch");
+            Printer.PrintLine($"{(int)BranchMenuOptions.SelectLeaf}: Select a Leaf");
         }
 
         protected override void MenuOptions(string userInput)
@@ -38,9 +38,9 @@ namespace SD2.Patterns.Composite.Tree.Menus.BranchMenus
                 case BranchMenuOptions.SelectBranch:
                     if (State.Branches.Count == 0)
                     {
-                        Printer.WriteLine();
-                        Printer.WriteLine("No branches exist for this trunk");
-                        Printer.WriteLine();
+                        Printer.PrintLine();
+                        Printer.PrintLine("No branches exist for this trunk");
+                        Printer.PrintLine();
                     }
                     else
                     {
@@ -50,9 +50,9 @@ namespace SD2.Patterns.Composite.Tree.Menus.BranchMenus
                 case BranchMenuOptions.SelectLeaf:
                     if (State.Leaves.Count == 0)
                     {
-                        Printer.WriteLine();
-                        Printer.WriteLine("No leaves exist for this trunk");
-                        Printer.WriteLine();
+                        Printer.PrintLine();
+                        Printer.PrintLine("No leaves exist for this trunk");
+                        Printer.PrintLine();
                     }
                     else
                     {
@@ -60,7 +60,7 @@ namespace SD2.Patterns.Composite.Tree.Menus.BranchMenus
                     }
                     break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

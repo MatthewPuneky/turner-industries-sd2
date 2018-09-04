@@ -24,7 +24,7 @@ namespace SD2.Patterns.Decorator.ItemPriceDecorators
             salesTax.SetItem(clearanceSale);
             tariffTax.SetItem(salesTax);
 
-            Printer.WriteLine($"{tariffTax.CalculatePrice()}");
+            Printer.PrintLine($"{tariffTax.CalculatePrice()}");
         }
     }
 }

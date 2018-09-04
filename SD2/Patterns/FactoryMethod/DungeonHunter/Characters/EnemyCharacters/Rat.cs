@@ -12,7 +12,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.EnemyCharacters
 
         public override void Describe()
         {
-            Printer.WriteLine("A frothing rat, larger than normal.");
+            Printer.PrintLine("A frothing rat, larger than normal.");
         }
     }
 }

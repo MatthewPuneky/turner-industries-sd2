@@ -2,6 +2,7 @@
 using SD2.Patterns.Adapter.LegacyBankAdapter.Menus;
 using SD2.Patterns.Builder.Menus;
 using SD2.Patterns.ChainOfResponsibility.Menus;
+using SD2.Patterns.Command.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Menus;
 using SD2.Patterns.Singleton.Menus;
 
@@ -28,5 +29,7 @@ namespace SD2.SharedFeatures.Menus
         public static SelectClassToBuildMenu SelectClassToBuildMenu() => new SelectClassToBuildMenu();
 
         public static LegacyBankAdapterMenu LegacyBankAdapterMenu() => new LegacyBankAdapterMenu();
+
+        public static TakeoffCommandMainMenu TakeoffCommandMainMenu() => new TakeoffCommandMainMenu();
     }
 }

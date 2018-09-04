@@ -17,13 +17,13 @@ namespace SD2.Patterns.Composite.Tree.Menus.TrunkMenus
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("TRUNK MENU");
+            Printer.PrintLine("TRUNK MENU");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)TrunkMenuOptions.Describe}: Describe");
-            Printer.WriteLine($"{(int)TrunkMenuOptions.SelectBranch}: Select a Branch");
+            Printer.PrintLine($"{(int)TrunkMenuOptions.Describe}: Describe");
+            Printer.PrintLine($"{(int)TrunkMenuOptions.SelectBranch}: Select a Branch");
         }
 
         protected override void MenuOptions(string userInput)
@@ -36,9 +36,9 @@ namespace SD2.Patterns.Composite.Tree.Menus.TrunkMenus
                 case TrunkMenuOptions.SelectBranch:
                     if (State.Branches.Count == 0)
                     {
-                        Printer.WriteLine();
-                        Printer.WriteLine("No branches exist for this trunk");
-                        Printer.WriteLine();
+                        Printer.PrintLine();
+                        Printer.PrintLine("No branches exist for this trunk");
+                        Printer.PrintLine();
                     }
                     else
                     {
@@ -46,7 +46,7 @@ namespace SD2.Patterns.Composite.Tree.Menus.TrunkMenus
                     }
                     break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

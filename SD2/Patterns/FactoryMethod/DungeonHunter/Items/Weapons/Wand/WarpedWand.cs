@@ -9,12 +9,12 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Weapons.Wand
 
         public override void Describe()
         {
-            Printer.WriteLine("The wand is so warped it's incredible it can even fire straight.");
+            Printer.PrintLine("The wand is so warped it's incredible it can even fire straight.");
         }
 
         public override void PrintWeaponAttack()
         {
-            Printer.WriteLine("Thin magic streams crackle out of the wand!");
+            Printer.PrintLine("Thin magic streams crackle out of the wand!");
         }
     }
 }

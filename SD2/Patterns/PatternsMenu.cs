@@ -13,26 +13,26 @@ namespace SD2.Patterns
 
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("PATTERNS MENU");
+            Printer.PrintLine("PATTERNS MENU");
         }
 
         protected override void PrintMenuBody()
         {
             const string underConstruction = Constants.Menu.UnderConstruction;
 
-            Printer.WriteLine($" {(int)PatternsMenuOptions.FactoryMethod}: Factory Method");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Composite}: Composite");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Decorator}: Decorator");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Command}: Command {underConstruction}");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.ChainOfResponsiblity}: Chain of Responsibility");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Mediator}: Mediator {underConstruction}");
-            Printer.WriteLine($" {(int)PatternsMenuOptions.Observer}: Observer {underConstruction}");
-            Printer.WriteLine($"{(int)PatternsMenuOptions.Strategy}: Strategy {underConstruction}");
-            Printer.WriteLine($"{(int)PatternsMenuOptions.TemplateMehtod}: Template Method {underConstruction}");
-            Printer.WriteLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
-            Printer.WriteLine($"{(int)PatternsMenuOptions.Builder}: Builder");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.FactoryMethod}: Factory Method");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Singleton}: Singleton");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Adapter}: Adapter");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Composite}: Composite");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Decorator}: Decorator");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Command}: Command");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.ChainOfResponsiblity}: Chain of Responsibility");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Mediator}: Mediator {underConstruction}");
+            Printer.PrintLine($" {(int)PatternsMenuOptions.Observer}: Observer {underConstruction}");
+            Printer.PrintLine($"{(int)PatternsMenuOptions.Strategy}: Strategy {underConstruction}");
+            Printer.PrintLine($"{(int)PatternsMenuOptions.TemplateMehtod}: Template Method {underConstruction}");
+            Printer.PrintLine($"{(int)PatternsMenuOptions.Visitor}: Visitor {underConstruction}");
+            Printer.PrintLine($"{(int)PatternsMenuOptions.Builder}: Builder");
         }
 
         protected override void MenuOptions(string userInput)
@@ -47,16 +47,16 @@ namespace SD2.Patterns
                 case PatternsMenuOptions.Adapter: Adapter.LegacyBankAdapter.Run.Operation(); break;
                 case PatternsMenuOptions.Composite: Composite.Tree.Run.Operation(); break;
                 case PatternsMenuOptions.Decorator: Decorator.ItemPriceDecorators.Run.Operation(); break;
-                case PatternsMenuOptions.Command: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Command: Command.Run.Operation(); break;
                 case PatternsMenuOptions.ChainOfResponsiblity: ChainOfResponsibility.Run.Operation(); break;
-                case PatternsMenuOptions.Mediator: Printer.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Observer: Printer.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Strategy: Printer.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.TemplateMehtod: Printer.WriteLine(underConstruction); break;
-                case PatternsMenuOptions.Visitor: Printer.WriteLine(underConstruction); break;
+                case PatternsMenuOptions.Mediator: Printer.PrintLine(underConstruction); break;
+                case PatternsMenuOptions.Observer: Printer.PrintLine(underConstruction); break;
+                case PatternsMenuOptions.Strategy: Printer.PrintLine(underConstruction); break;
+                case PatternsMenuOptions.TemplateMehtod: Printer.PrintLine(underConstruction); break;
+                case PatternsMenuOptions.Visitor: Printer.PrintLine(underConstruction); break;
                 case PatternsMenuOptions.Builder: Builder.Run.Operation(); break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     break;
             }
         }

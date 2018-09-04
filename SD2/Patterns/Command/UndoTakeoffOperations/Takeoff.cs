@@ -7,24 +7,22 @@ using System.Threading.Tasks;
 namespace SD2.Patterns.Command.UndoTakeoffOperations
 {
     [Serializable]
-    public class Takeoff
+    public class Takeoff : TakeoffPutDto
     {
-        public int Id { get; set; }
-        public string DrawingNumber { get; set; }
-        public string Abbreviation { get; set; }
-        public int Size { get; set; }
         public int ManHours { get; set; }
     }
 
-    public class TakeoffPostDto
+    [Serializable]
+    public class TakeoffPutDto : TakeoffDto
+    {
+        public int Id { get; set; }
+    }
+
+    [Serializable]
+    public class TakeoffDto
     {
         public string DrawingNumber { get; set; }
         public string Abbreviation { get; set; }
         public int Size { get; set; }
-    }
-
-    public class TakeoffPutDto : TakeoffPostDto
-    {
-        public int Id { get; set; }
     }
 }

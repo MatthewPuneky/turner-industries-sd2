@@ -29,18 +29,20 @@ namespace SD2.SharedFeatures.Informationals
 
         public void Display()
         {
+            Printer.Clear();
+
             var firstLoop = true;
 
             foreach(var line in LoadLinesToDisplay())
             {
                 if (firstLoop)
                 {
-                    Printer.WriteLine();
+                    Printer.PrintLine();
                     firstLoop = false;
                     LinesDisplayed++;
                 }
 
-                Printer.WriteLine(line);
+                Printer.PrintLine(line);
 
                 if(DisplayInformationPaged)
                 {
@@ -50,7 +52,7 @@ namespace SD2.SharedFeatures.Informationals
                     {
                         if (GetValidInputFromUser() == InformationalOptions.Exit)
                         {
-                            Printer.WriteLine();
+                            Printer.PrintLine();
                             return;
                         }
 
@@ -60,13 +62,15 @@ namespace SD2.SharedFeatures.Informationals
             }
 
             Salutation();
+
+            Printer.Clear();
         }
 
         private void Salutation()
         {
-            Printer.Write($"{InformUserOfEndOfList()} - [Any Key] to exit: ");
+            Printer.Print($"{InformUserOfEndOfList()} - [Any Key] to exit: ");
             Printer.ReadKeyChar();
-            Printer.WriteLine();
+            Printer.PrintLine();
 
             Printer.ClearPreviousLine();
         }
@@ -79,7 +83,7 @@ namespace SD2.SharedFeatures.Informationals
             while (userInputIsInvalid)
             {
                 userInputIsInvalid = false;
-                Printer.Write($"{HowToContinune()} - {HowToExitPagedMenu()}: ");
+                Printer.Print($"{HowToContinune()} - {HowToExitPagedMenu()}: ");
                 var userInput = Printer.ReadLine();
 
                 switch(userInput.ToUpper())

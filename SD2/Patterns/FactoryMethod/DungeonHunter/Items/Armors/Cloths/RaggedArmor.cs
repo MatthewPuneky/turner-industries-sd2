@@ -10,7 +10,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Items.Armors.Cloths
 
         public override void Describe()
         {
-            Printer.WriteLine("Holes all over, but at least it keeps the cold out.");
+            Printer.PrintLine("Holes all over, but at least it keeps the cold out.");
         }
     }
 }

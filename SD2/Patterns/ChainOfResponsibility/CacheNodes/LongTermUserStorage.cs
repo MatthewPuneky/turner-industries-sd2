@@ -11,7 +11,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
 
         public override CachedUser HandleRequest(int request)
         {
-            Printer.WriteLine("Accessing user from LONGTERM storage...");
+            Printer.PrintLine("Accessing user from LONGTERM storage...");
             Thread.Sleep(5000);
 
             var user = _fakeLongTermStorage.FirstOrDefault(x => x.Id == request);
@@ -21,7 +21,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
 
         internal override void HandleResponse(CachedUser response)
         {
-            Printer.WriteLine($"Incinerated cached user id={response.User.Id} since has aged past the cache.");
+            Printer.PrintLine($"Incinerated cached user id={response.User.Id} since has aged past the cache.");
         }
     }
 }

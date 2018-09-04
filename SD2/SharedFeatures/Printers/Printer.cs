@@ -7,7 +7,7 @@ namespace SD2.SharedFeatures.Printers
     // Easy solution for now
     public static class Printer
     {
-        public static void WriteLine(string line)
+        public static void PrintLine(string line)
         {
             foreach(var @char in line)
             {
@@ -21,12 +21,12 @@ namespace SD2.SharedFeatures.Printers
             Console.WriteLine();
         }
 
-        public static void WriteLine()
+        public static void PrintLine()
         {
             Console.WriteLine();
         }
 
-        public static void Write(string partialLine)
+        public static void Print(string partialLine)
         {
             foreach (var @char in partialLine)
             {
@@ -62,6 +62,11 @@ namespace SD2.SharedFeatures.Printers
         private static void Wait()
         {
             Thread.Sleep(2);
+        }
+
+        public static void Clear()
+        {
+            Console.Clear();
         }
     }
 }

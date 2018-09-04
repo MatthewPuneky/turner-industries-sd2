@@ -22,14 +22,14 @@ namespace SD2.Patterns.Builder.Menus
         
         protected override void PrintMenuHeader()
         {
-            Printer.WriteLine("SELECT A CLASS TO BUILD");
+            Printer.PrintLine("SELECT A CLASS TO BUILD");
         }
 
         protected override void PrintMenuBody()
         {
-            Printer.WriteLine($"{(int)BuildableClassTypes.Warrior}: {BuildableClassTypes.Warrior}");
-            Printer.WriteLine($"{(int)BuildableClassTypes.Ranger}: {BuildableClassTypes.Ranger}");
-            Printer.WriteLine($"{(int)BuildableClassTypes.Wizzard}: {BuildableClassTypes.Wizzard}");
+            Printer.PrintLine($"{(int)BuildableClassTypes.Warrior}: {BuildableClassTypes.Warrior}");
+            Printer.PrintLine($"{(int)BuildableClassTypes.Ranger}: {BuildableClassTypes.Ranger}");
+            Printer.PrintLine($"{(int)BuildableClassTypes.Wizzard}: {BuildableClassTypes.Wizzard}");
         }
 
         protected override void MenuOptions(string userInput)
@@ -56,7 +56,7 @@ namespace SD2.Patterns.Builder.Menus
                     State.Character = builder.GetResult();
                     break;
                 default:
-                    Printer.WriteLine(Constants.Menu.FailedToHandle(option.ToString()));
+                    Printer.PrintLine(Constants.Menu.FailedToHandle(option.ToString()));
                     MenuIsActive = true;
                     break;
             }

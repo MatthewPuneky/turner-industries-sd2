@@ -8,7 +8,7 @@ namespace SD2.Patterns.FactoryMethod.DungeonHunter.Characters.PlayerCharacters
 
         public override void Describe()
         {
-            Printer.WriteLine("A mysterious fighter, willing to use any tactics to survive.");
+            Printer.PrintLine("A mysterious fighter, willing to use any tactics to survive.");
         }
     }
 }
