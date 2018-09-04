@@ -1,15 +1,16 @@
 ﻿using System.Linq;
 using SD2.Patterns.Command.State;
 using SD2.Patterns.Command.UndoOptions;
+using SD2.SharedFeatures.Menus;
 using static SD2.SharedFeatures.Helpers.ObjectHelpers;
 
 namespace SD2.Patterns.Command.UndoTakeoffOperations
 {
-    public class DeleteTakeoff : UndoableCommand<Takeoff>
+    public class DeleteTakeoffCommand : UndoableCommand<Takeoff>
     {
         private Takeoff _previousState;
 
-        public DeleteTakeoff(int id)
+        public DeleteTakeoffCommand(int id)
         {
             var state = UndoableCommandState.Instance;
 
@@ -23,6 +24,7 @@ namespace SD2.Patterns.Command.UndoTakeoffOperations
 
             var takeoffToRemove = state.Takeoffs.First(x => x.Id == _previousState.Id);
             UndoableCommandState.Instance.Takeoffs.Remove(takeoffToRemove);
+            MenuFactory.SimpleMessageInformational("TAKEOFF DELETED").Display();
 
             return null;
         }

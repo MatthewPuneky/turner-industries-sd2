@@ -11,7 +11,7 @@ namespace SD2.Patterns.Decorator.UserInputValidationDecorators.UserInputs
     {
         public override void DisplayUserInputPrompt()
         {
-            Printer.Write("Enter a value: ");
+            Printer.Print("Enter a value: ");
         }
 
         public override string ReadUserInput()

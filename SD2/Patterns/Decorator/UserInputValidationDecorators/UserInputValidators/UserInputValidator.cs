@@ -33,8 +33,8 @@ namespace SD2.Patterns.Decorator.UserInputValidationDecorators.UserInputValidato
             UserInput = userInput;
         }
 
-        protected override void DisplayUserInputPrompt() => UserInput.DisplayUserInputPrompt();
-        protected override string ReadUserInput() => UserInput.ReadUserInput();
+        public override void DisplayUserInputPrompt() => UserInput.DisplayUserInputPrompt();
+        public override string ReadUserInput() => UserInput.ReadUserInput();
 
         public override string GetUserInput()
         {

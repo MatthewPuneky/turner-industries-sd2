@@ -8,6 +8,7 @@ using SD2.SharedFeatures.Menus;
 using SD2.SharedFeatures.Printers;
 using System.Collections.Generic;
 using static SD2.SharedFeatures.Common.Constants;
+using static SD2.SharedFeatures.Helpers.ObjectHelpers;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
 {
@@ -66,7 +67,7 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
             var adapter = new BankOfFooAccountAdapter();
             State.BankOfFooAccounts.ForEach(fooAccount => {
                 adapter.FooAccount = fooAccount;
-                IAccountTarget account = adapter;
+                IAccountTarget account = DeepClone(adapter);
                 State.AccountsToPrint.Add(account);
             });
         }
@@ -76,7 +77,7 @@ namespace SD2.Patterns.Adapter.LegacyBankAdapter.Menus
             var adapter = new BankOfBarAccountAdapter();
             State.BankOfBarAccounts.ForEach(barAccount => {
                 adapter.BarAccount = barAccount;
-                IAccountTarget account = adapter;
+                IAccountTarget account = DeepClone(adapter);
                 State.AccountsToPrint.Add(account);
             });
         }

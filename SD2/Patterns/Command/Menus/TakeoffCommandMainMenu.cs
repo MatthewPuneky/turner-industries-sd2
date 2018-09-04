@@ -40,23 +40,36 @@ namespace SD2.Patterns.Command.Menus
                     CommandTakeoffMenuFactory.AddTakeoffMenu.Display();
                     break;
                 case TakeoffCommandMainMenuOptions.EditTakeoff:
-                    var takeoff = CommandTakeoffMenuFactory.SelectTakeoffByIdMenu(null).Display();
-                    if (takeoff != null)
+                    var takeoffToEdit = CommandTakeoffMenuFactory.SelectTakeoffByIdMenu(null).Display();
+                    if (takeoffToEdit != null)
                     {
-                        CommandTakeoffMenuFactory.EditTakeoffMenu(takeoff).Display();
+                        CommandTakeoffMenuFactory.EditTakeoffMenu(takeoffToEdit).Display();
                     }
                     break;
-                case TakeoffCommandMainMenuOptions.DeleteTakeoff: 
-                    Printer.PrintLine(Constants.Menu.UnderConstructionToUserResponse);
+                case TakeoffCommandMainMenuOptions.DeleteTakeoff:
+                    var takeoffToDelete = CommandTakeoffMenuFactory.SelectTakeoffByIdMenu(null).Display();
+                    if (takeoffToDelete != null)
+                    {
+                        var deleteTakeoffCommand = new DeleteTakeoffCommand(takeoffToDelete.Id);
+                        UndoableCommandState.Instance.TakeoffCommandManager.ExecuteCommand(deleteTakeoffCommand);
+                    }
                     break;
                 case TakeoffCommandMainMenuOptions.UndoLastAction:
-                    if (UndoableCommandState.Instance.TakeoffCommandManager.CanUndo())
-                    {
-                        UndoableCommandState.Instance.TakeoffCommandManager.Undo();
-                    }
-                    Printer.Clear();
+                    TryUndo();
                     break;
             }
+        }
+
+        private static void TryUndo()
+        {
+            if (UndoableCommandState.Instance.TakeoffCommandManager.CanUndo())
+            {
+                UndoableCommandState.Instance.TakeoffCommandManager.Undo();
+                MenuFactory.SimpleMessageInformational("UNDO SUCCEEDED").Display();
+                return;
+            }
+            
+            MenuFactory.SimpleMessageInformational("NO MORE OPERATIONS TO UNDO").Display();
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SD2.Patterns.Command.State;
 using SD2.Patterns.Command.UndoOptions;
+using SD2.SharedFeatures.Menus;
 using static SD2.SharedFeatures.Helpers.ObjectHelpers;
 
 namespace SD2.Patterns.Command.UndoTakeoffOperations
@@ -29,6 +30,8 @@ namespace SD2.Patterns.Command.UndoTakeoffOperations
             takeoff.DrawingNumber = _editTakeoffState.DrawingNumber;
             takeoff.Abbreviation = _editTakeoffState.Abbreviation;
             takeoff.Size = _editTakeoffState.Size;
+
+            MenuFactory.SimpleMessageInformational("TAKEOFF SAVED").Display();
 
             return takeoff;
         }

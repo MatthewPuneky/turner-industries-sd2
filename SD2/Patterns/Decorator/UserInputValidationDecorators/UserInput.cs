@@ -12,7 +12,7 @@ namespace SD2.Patterns.Decorator.UserInputValidationDecorators
         public abstract void DisplayUserInputPrompt();
         public abstract string ReadUserInput();
 
-        public string GetUserInput()
+        public virtual string GetUserInput()
         {
             DisplayUserInputPrompt();
             return ReadUserInput();

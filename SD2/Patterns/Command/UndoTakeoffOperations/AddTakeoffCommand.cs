@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SD2.Patterns.Command.State;
 using SD2.Patterns.Command.UndoOptions;
+using SD2.SharedFeatures.Menus;
 using static SD2.SharedFeatures.Helpers.IntHelpers;
 
 namespace SD2.Patterns.Command.UndoTakeoffOperations
@@ -20,6 +21,7 @@ namespace SD2.Patterns.Command.UndoTakeoffOperations
         {
             _takeoffToAdd.Id = NextId();
             UndoableCommandState.Instance.Takeoffs.Add(_takeoffToAdd);
+            MenuFactory.SimpleMessageInformational("TAKEOFF SAVED").Display();
 
             return _takeoffToAdd;
         }

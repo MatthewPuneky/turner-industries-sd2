@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SD2.Patterns.Adapter.LegacyBankAdapter.LegacyCode;
 using SD2.Patterns.Adapter.LegacyBankAdapter.ModernCode;
@@ -6,6 +7,7 @@ using System.Numerics;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
 {
+    [Serializable]
     public class BankOfBarAccountAdapter : IAccountTarget
     {
         public BankOfBarAccount BarAccount { get; set; }

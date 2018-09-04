@@ -1,4 +1,6 @@
-﻿using SD2.SharedFeatures.Printers;
+﻿using System.Collections.Generic;
+using SD2.SharedFeatures.Menus;
+using SD2.SharedFeatures.Printers;
 
 namespace SD2.Patterns.Builder
 {
@@ -14,14 +16,18 @@ namespace SD2.Patterns.Builder
         public int Dexterity { get; set; }
 
         public void Describe()
-        { 
-            Printer.PrintLine("YOUR BUILT CHARACTER");
-            Printer.PrintLine($"Armor: {Armor}");
-            Printer.PrintLine($"Weapon: {Weapon}");
-            Printer.PrintLine($"Strength: {Strength}");
-            Printer.PrintLine($"Intelligence: {Intelligence}");
-            Printer.PrintLine($"Dexterity: {Dexterity}");
-            Printer.PrintLine();
+        {
+            var information = new List<string>
+            {
+                "YOUR BUILT CHARACTER",
+                $"Armor: {Armor}",
+                $"Weapon: {Weapon}",
+                $"Strength: {Strength}",
+                $"Intelligence: {Intelligence}",
+                $"Dexterity: {Dexterity}"
+            };
+
+            MenuFactory.SimpleMessagesInformational(information).Display();
         }
     }
 }

@@ -30,25 +30,16 @@ namespace SD2.SharedFeatures.Informationals
         public void Display()
         {
             Printer.Clear();
-
-            var firstLoop = true;
-
+            
             foreach(var line in LoadLinesToDisplay())
             {
-                if (firstLoop)
-                {
-                    Printer.PrintLine();
-                    firstLoop = false;
-                    LinesDisplayed++;
-                }
-
                 Printer.PrintLine(line);
 
                 if(DisplayInformationPaged)
                 {
                     LinesDisplayed++;
 
-                    if(LinesDisplayed > LinesPerPage)
+                    if(LinesDisplayed >= LinesPerPage)
                     {
                         if (GetValidInputFromUser() == InformationalOptions.Exit)
                         {
@@ -84,19 +75,19 @@ namespace SD2.SharedFeatures.Informationals
             {
                 userInputIsInvalid = false;
                 Printer.Print($"{HowToContinune()} - {HowToExitPagedMenu()}: ");
-                var userInput = Printer.ReadLine();
+                var userInput = Printer.ReadKeyChar();
 
-                switch(userInput.ToUpper())
+                switch(userInput)
                 {
-                    case "":
-                    case "N":
-                    case "NEXT": valueToReturn = InformationalOptions.NextPage; break;
-                    case "E":
-                    case "EXIT": valueToReturn = InformationalOptions.Exit; break;
-                    default: userInputIsInvalid = true; break;
+                    case '\r':
+                    case 'n':
+                    case 'N': valueToReturn = InformationalOptions.NextPage; break;
+                    case 'e':
+                    case 'E': valueToReturn = InformationalOptions.Exit; break;
+                    default: userInputIsInvalid = true; continue;
                 }
 
-                Printer.ClearPreviousLine();
+                Printer.ClearCurrentConsoleLine();
             }
 
             return valueToReturn;

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SD2.Patterns.Adapter.LegacyBankAdapter.ModernCode;
 using System.Numerics;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.AdapterCode
 {
+    [Serializable]
     public class BankOfFooAccountAdapter : IAccountTarget
     {
         public BankOfFooAccount FooAccount { get; set; }

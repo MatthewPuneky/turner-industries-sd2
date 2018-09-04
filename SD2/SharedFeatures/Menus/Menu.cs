@@ -69,6 +69,8 @@ namespace SD2.SharedFeatures.Menus
                 }
 
                 MenuOptions(userInput);
+
+                Printer.Clear();
             }
 
             Printer.Clear();

@@ -1,10 +1,12 @@
-﻿using SD2.Patterns;
+﻿using System.Collections.Generic;
+using SD2.Patterns;
 using SD2.Patterns.Adapter.LegacyBankAdapter.Menus;
 using SD2.Patterns.Builder.Menus;
 using SD2.Patterns.ChainOfResponsibility.Menus;
 using SD2.Patterns.Command.Menus;
 using SD2.Patterns.FactoryMethod.DungeonHunter.Menus;
 using SD2.Patterns.Singleton.Menus;
+using SD2.SharedFeatures.Informationals;
 
 namespace SD2.SharedFeatures.Menus
 {
@@ -31,5 +33,8 @@ namespace SD2.SharedFeatures.Menus
         public static LegacyBankAdapterMenu LegacyBankAdapterMenu() => new LegacyBankAdapterMenu();
 
         public static TakeoffCommandMainMenu TakeoffCommandMainMenu() => new TakeoffCommandMainMenu();
+
+        public static Informational<string> SimpleMessageInformational(string message) => new SimpleMessageInformational(message);
+        public static Informational<List<string>> SimpleMessagesInformational(List<string> message) => new SimpleMessagesInformational(message);
     }
 }

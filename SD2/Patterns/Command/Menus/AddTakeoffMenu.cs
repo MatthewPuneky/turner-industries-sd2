@@ -30,7 +30,7 @@ namespace SD2.Patterns.Command.Menus
                     ? "Unset"
                     : _takeoffToAdd.Size.ToString();
 
-            Printer.PrintLine($"{(int)AddTakeoffOptions.SetDrawingNumber}: Set Drwaing Number ({curDrawingNumber})");
+            Printer.PrintLine($"{(int)AddTakeoffOptions.SetDrawingNumber}: Set Drawing Number ({curDrawingNumber})");
             Printer.PrintLine($"{(int)AddTakeoffOptions.SetAbbreviation}: Set Abbreviation ({curAbbreviation})");
             Printer.PrintLine($"{(int)AddTakeoffOptions.SetSize}: Set Size ({curSize})");
             Printer.PrintLine($"{(int)AddTakeoffOptions.SaveTakeoff}: Save Takeoff");

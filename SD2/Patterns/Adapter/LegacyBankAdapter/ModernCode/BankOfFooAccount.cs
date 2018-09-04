@@ -4,6 +4,7 @@ using System.Numerics;
 
 namespace SD2.Patterns.Adapter.LegacyBankAdapter.ModernCode
 {
+    [Serializable]
     public class BankOfFooAccount
     {
         public Guid AccountNumber { get; } = Guid.NewGuid();

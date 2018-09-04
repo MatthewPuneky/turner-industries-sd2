@@ -122,13 +122,14 @@
     <Compile Include="Patterns\Command\Menus\SetDrawingNumberMenu.cs" />
     <Compile Include="Patterns\Command\Menus\SetSizeMenu.cs" />
     <Compile Include="Patterns\Command\Menus\TakeoffCommandMainMenu.cs" />
+    <Compile Include="SharedFeatures\Menus\SimpleMessageInformational.cs" />
     <Compile Include="Patterns\Command\Run.cs" />
     <Compile Include="Patterns\Command\State\UndoableCommandState.cs" />
     <Compile Include="Patterns\Command\UndoOptions\UndoOperationsState.cs" />
     <Compile Include="Patterns\Command\UndoOptions\UndoableCommand.cs" />
     <Compile Include="Patterns\Command\UndoOptions\CommandManager.cs" />
     <Compile Include="Patterns\Command\UndoTakeoffOperations\AddTakeoffCommand.cs" />
-    <Compile Include="Patterns\Command\UndoTakeoffOperations\DeleteTakeoff.cs" />
+    <Compile Include="Patterns\Command\UndoTakeoffOperations\DeleteTakeoffCommand.cs" />
     <Compile Include="Patterns\Command\UndoTakeoffOperations\EditTakeoffCommand.cs" />
     <Compile Include="Patterns\Command\UndoTakeoffOperations\Takeoff.cs" />
     <Compile Include="Patterns\Composite\Tree\Branch.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Patterns\Singleton\State\State.cs" />
     <Compile Include="Patterns\Singleton\State\Toppings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharedFeatures\Menus\SimpleMessagesInformational.cs" />
     <Compile Include="SharedFeatures\Printers\Printer.cs" />
   </ItemGroup>
   <ItemGroup>

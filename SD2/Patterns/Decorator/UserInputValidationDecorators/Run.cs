@@ -24,12 +24,12 @@ namespace SD2.Patterns.Decorator.UserInputValidationDecorators
 
             foreach (var error in validated2.ErrorMessages)
             {
-                Printer.WriteLine(error);
+                Printer.PrintLine(error);
             }
 
             foreach (var error in validated1.ErrorMessages)
             {
-                Printer.WriteLine(error);
+                Printer.PrintLine(error);
             }
         }
     }
