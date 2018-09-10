@@ -84,6 +84,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backend\AsyncAwait\GeneralPractice\AsyncPractice.cs" />
+    <Compile Include="Backend\AsyncAwait\GeneralPractice\Run.cs" />
+    <Compile Include="Backend\BackendMenu.cs" />
     <Compile Include="IRunnable.cs" />
     <Compile Include="ApplicationStart.cs" />
     <Compile Include="Patterns\Adapter\LegacyBankAdapter\AdapterCode\IAccountTargetHelpers.cs" />
@@ -258,6 +261,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Patterns\Decorator\EncryptionDecorators\" />
+    <Folder Include="Patterns\Mediator\" />
     <Folder Include="SharedFeatures\State\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

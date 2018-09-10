@@ -21,8 +21,8 @@ namespace SD2
             const string underConstruction = Constants.Menu.UnderConstruction;
 
             Printer.PrintLine($"{(int)ApplicationMainMenuOptions.General}: General {underConstruction}");
-            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend {underConstruction}");
-            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns ");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.Backend}: Backend");
+            Printer.PrintLine($"{(int)ApplicationMainMenuOptions.Patterns}: Patterns");
             Printer.PrintLine($"{(int)ApplicationMainMenuOptions.SolidPrincipals}: Solid Principals {underConstruction}");
             Printer.PrintLine($"{(int)ApplicationMainMenuOptions.TSql}: T-Sql {underConstruction}");
             Printer.PrintLine($"{(int)ApplicationMainMenuOptions.DevOps}: DevOps {underConstruction}");
@@ -36,7 +36,7 @@ namespace SD2
             switch (option)
             {
                 case ApplicationMainMenuOptions.General: Printer.PrintLine(underConstruction); break;
-                case ApplicationMainMenuOptions.Backend: Printer.PrintLine(underConstruction); break;
+                case ApplicationMainMenuOptions.Backend: MenuFactory.BackendMenu().Display(); break;
                 case ApplicationMainMenuOptions.Patterns: MenuFactory.PatternsMenu().Display(); break;
                 case ApplicationMainMenuOptions.SolidPrincipals: Printer.PrintLine(underConstruction); break;
                 case ApplicationMainMenuOptions.TSql: Printer.PrintLine(underConstruction); break;

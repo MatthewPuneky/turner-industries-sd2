@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SD2.Backend;
 using SD2.Patterns;
 using SD2.Patterns.Adapter.LegacyBankAdapter.Menus;
 using SD2.Patterns.Builder.Menus;
@@ -23,6 +24,7 @@ namespace SD2.SharedFeatures.Menus
 
         public static PlayerMenu PlayerMenu() => new PlayerMenu();
 
+        public static BackendMenu BackendMenu() => new BackendMenu();
         public static PatternsMenu PatternsMenu() => new PatternsMenu();
         public static SelectCrustMenu SelectCrustMenu() => new SelectCrustMenu();
 
