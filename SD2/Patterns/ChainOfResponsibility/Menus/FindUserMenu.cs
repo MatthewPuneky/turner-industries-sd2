@@ -15,8 +15,6 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
         {
         }
 
-        private UserFinder _userFinder = new UserFinder();
-
         protected override List<string> LegalValues => Users.AllUsers.Select(x => x.Id.ToString()).ToList();
         protected override bool CanExit => true;
 
@@ -45,7 +43,7 @@ namespace SD2.Patterns.ChainOfResponsibility.Menus
             }
 
             var selectedId = int.Parse(userInput);
-            _userFinder.Find(selectedId);
+            new FindUserInformational(selectedId).Display();
         }
     }
 }

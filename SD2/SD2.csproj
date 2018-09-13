@@ -113,7 +113,7 @@
     <Compile Include="Patterns\Builder\Menus\SelectClassToBuildMenu.cs" />
     <Compile Include="Patterns\Builder\Run.cs" />
     <Compile Include="Patterns\Builder\States\BuilderPatternState.cs" />
-    <Compile Include="Patterns\ChainOfResponsibility\UserFinder.cs" />
+    <Compile Include="Patterns\ChainOfResponsibility\Menus\FindUserInformational.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\Menus\FindUserMenu.cs" />
     <Compile Include="Patterns\ChainOfResponsibility\StorageState.cs" />
     <Compile Include="Patterns\Command\Menus\AddTakeoffMenu.cs" />
