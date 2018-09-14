@@ -28,7 +28,7 @@ namespace SD2.Algorithms.Sorting.InsertionSort.Tests.Algorithm
             }
         }
 
-        /// <summary>
+        /// <summary> 
         /// Book: Introduction to Algorithms, Third Edition
         /// Section: 2.1 Insertion Sort
         /// Exercise: 2.1-1
