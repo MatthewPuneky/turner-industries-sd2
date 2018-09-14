@@ -84,6 +84,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\Sorting\InsertionSort\Algorithm\InsertionSort.cs" />
+    <Compile Include="Algorithms\Sorting\InsertionSort\Tests\Algorithm\InsertionSortTests.cs" />
     <Compile Include="Backend\AsyncAwait\GeneralPractice\AsyncPractice.cs" />
     <Compile Include="Backend\AsyncAwait\GeneralPractice\Run.cs" />
     <Compile Include="Backend\BackendMenu.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Patterns\Command\Menus\SetDrawingNumberMenu.cs" />
     <Compile Include="Patterns\Command\Menus\SetSizeMenu.cs" />
     <Compile Include="Patterns\Command\Menus\TakeoffCommandMainMenu.cs" />
+    <Compile Include="SharedFeatures\Helpers\EnumeratorHelpers.cs" />
     <Compile Include="SharedFeatures\Menus\SimpleMessageInformational.cs" />
     <Compile Include="Patterns\Command\Run.cs" />
     <Compile Include="Patterns\Command\State\UndoableCommandState.cs" />

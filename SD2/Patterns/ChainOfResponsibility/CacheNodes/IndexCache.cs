@@ -7,7 +7,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
 {
     public class IndexCache : CacheChainHandler<int, CachedUser>
     {
-        private int fakeUserLimit = 2;
+        private int _fakeUserLimit = 2;
 
         public static List<CachedUser> _fakeIndexCache { get; } = new List<CachedUser>();
 
@@ -15,7 +15,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
         {
             Printer.PrintLine("Accessing user from INDEX storage...");
 
-            var cachedUser = _fakeIndexCache.FirstOrDefault(x => x?.User?.Id == request);
+            var cachedUser = _fakeIndexCache.FirstOrDefault(x => x.User.Id == request);
 
             if (cachedUser != null)
             {
@@ -41,7 +41,7 @@ namespace SD2.Patterns.ChainOfResponsibility.CacheNodes
             {
                 return;
             }
-            if (_fakeIndexCache.Count + 1 > fakeUserLimit)
+            if (_fakeIndexCache.Count + 1 > _fakeUserLimit)
             {
                 var userToDemote = RemoveOldestCachedUserFromList();
                 Printer.PrintLine($"Demoting user id={userToDemote.User.Id} from INDEX to lower cache");
