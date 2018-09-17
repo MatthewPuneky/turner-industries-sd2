@@ -17,14 +17,14 @@ namespace SD2.Algorithms.Sorting.InsertionSort.Tests.Algorithm
             var initialArray = new [] {5, 2, 4, 6, 1, 3};
             var algorithm = new InsertionSort.Algorithm.InsertionSort.Nondecreasing(initialArray);
             
-            using (var enumerator = algorithm.NextPermutation().GetEnumerator())
+            using (var permute = algorithm.Permute().GetEnumerator())
             {
-                enumerator.GetNext().ShouldBe(new[] {2, 5, 4, 6, 1, 3});
-                enumerator.GetNext().ShouldBe(new[] {2, 4, 5, 6, 1, 3});
-                enumerator.GetNext().ShouldBe(new[] {2, 4, 5, 6, 1, 3});
-                enumerator.GetNext().ShouldBe(new[] {1, 2, 4, 5, 6, 3});
-                enumerator.GetNext().ShouldBe(new[] {1, 2, 3, 4, 5, 6});
-                enumerator.MoveNext().ShouldBe(false);
+                permute.GetNext().ShouldBe(new[] {2, 5, 4, 6, 1, 3});
+                permute.GetNext().ShouldBe(new[] {2, 4, 5, 6, 1, 3});
+                permute.GetNext().ShouldBe(new[] {2, 4, 5, 6, 1, 3});
+                permute.GetNext().ShouldBe(new[] {1, 2, 4, 5, 6, 3});
+                permute.GetNext().ShouldBe(new[] {1, 2, 3, 4, 5, 6});
+                permute.MoveNext().ShouldBe(false);
             }
         }
 
@@ -39,14 +39,14 @@ namespace SD2.Algorithms.Sorting.InsertionSort.Tests.Algorithm
             var initialArray = new[] {31, 41, 59, 26, 41, 58};
             var algorithm = new InsertionSort.Algorithm.InsertionSort.Nondecreasing(initialArray);
 
-            using (var enumerator = algorithm.NextPermutation().GetEnumerator())
+            using (var permute = algorithm.Permute().GetEnumerator())
             {
-                enumerator.GetNext().ShouldBe(new[] {31, 41, 59, 26, 41, 58});
-                enumerator.GetNext().ShouldBe(new[] {31, 41, 59, 26, 41, 58});
-                enumerator.GetNext().ShouldBe(new[] {26, 31, 41, 59, 41, 58});
-                enumerator.GetNext().ShouldBe(new[] {26, 31, 41, 41, 59, 58});
-                enumerator.GetNext().ShouldBe(new[] {26, 31, 41, 41, 58, 59});
-                enumerator.MoveNext().ShouldBe(false);
+                permute.GetNext().ShouldBe(new[] {31, 41, 59, 26, 41, 58});
+                permute.GetNext().ShouldBe(new[] {31, 41, 59, 26, 41, 58});
+                permute.GetNext().ShouldBe(new[] {26, 31, 41, 59, 41, 58});
+                permute.GetNext().ShouldBe(new[] {26, 31, 41, 41, 59, 58});
+                permute.GetNext().ShouldBe(new[] {26, 31, 41, 41, 58, 59});
+                permute.MoveNext().ShouldBe(false);
             }
         }
 
@@ -61,7 +61,7 @@ namespace SD2.Algorithms.Sorting.InsertionSort.Tests.Algorithm
             var initialArray = new[] { 5, 2, 4, 6, 1, 3 };
             var algorithm = new InsertionSort.Algorithm.InsertionSort.Nonincreasing(initialArray);
 
-            using (var enumerator = algorithm.NextPermutation().GetEnumerator())
+            using (var enumerator = algorithm.Permute().GetEnumerator())
             {
                 enumerator.GetNext().ShouldBe(new[] {5, 2, 4, 6, 1, 3});
                 enumerator.GetNext().ShouldBe(new[] {5, 4, 2, 6, 1, 3});

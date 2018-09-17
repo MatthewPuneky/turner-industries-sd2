@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace SD2.Algorithms.Sorting.InsertionSort.Algorithm
 {
     /// <summary>
+    /// Example: Hand full of cards, pull one out, sort it with the first card, repeat with next cards until done
     /// Book: Introduction to Algorithms, Third Edition
     /// Section: 2.1 Insertion Sort
     /// </summary>
@@ -18,7 +19,7 @@ namespace SD2.Algorithms.Sorting.InsertionSort.Algorithm
                 _array = array;
             }
 
-            public IEnumerable<int[]> NextPermutation()
+            public IEnumerable<int[]> Permute()
             {
                 for (var i = 1; i < _array.Length; i++)
                 {
@@ -67,7 +68,7 @@ namespace SD2.Algorithms.Sorting.InsertionSort.Algorithm
                 _array = array;
             }
 
-            public IEnumerable<int[]> NextPermutation()
+            public IEnumerable<int[]> Permute()
             {
                 for (var i = 1; i < _array.Length; i++)
                 {

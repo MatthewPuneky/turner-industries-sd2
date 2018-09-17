@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\Sorting\InsertionSort\Algorithm\InsertionSort.cs" />
     <Compile Include="Algorithms\Sorting\InsertionSort\Tests\Algorithm\InsertionSortTests.cs" />
+    <Compile Include="Algorithms\Sorting\MergeSort\MergeSort.cs" />
     <Compile Include="Backend\AsyncAwait\GeneralPractice\AsyncPractice.cs" />
     <Compile Include="Backend\AsyncAwait\GeneralPractice\Run.cs" />
     <Compile Include="Backend\BackendMenu.cs" />
